@@ -182,8 +182,8 @@ function HomePage() {
               Hear it before you imagine it.
             </h2>
             <p className="mt-5 text-cream/85 leading-relaxed">
-              The handpan is unfamiliar to many couples. Spend a few minutes with
-              the music — most people decide the moment they hear it.
+              The handpan is unfamiliar to many. Spend a few minutes with the
+              music — most people decide the moment they hear it.
             </p>
             <Link
               to="/listen"
