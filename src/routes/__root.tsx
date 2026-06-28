@@ -72,6 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Craig Handpan — Wedding Musician" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
+      { name: "twitter:title", content: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
+      { name: "description", content: "Soulful Wedding Sounds offers live handpan music for elegant and intimate wedding celebrations." },
+      { property: "og:description", content: "Soulful Wedding Sounds offers live handpan music for elegant and intimate wedding celebrations." },
+      { name: "twitter:description", content: "Soulful Wedding Sounds offers live handpan music for elegant and intimate wedding celebrations." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ca7bcbe5-76b1-4baa-ba31-b2f3979d314c/id-preview-5f823ebf--a08e8228-5d14-439d-b3de-53d80cb0c677.lovable.app-1782682491885.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ca7bcbe5-76b1-4baa-ba31-b2f3979d314c/id-preview-5f823ebf--a08e8228-5d14-439d-b3de-53d80cb0c677.lovable.app-1782682491885.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
