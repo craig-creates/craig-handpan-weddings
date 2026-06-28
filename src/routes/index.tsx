@@ -96,7 +96,7 @@ function HomePage() {
         <div className="md:col-span-7 md:order-1 md:pr-8">
           <p className="eyebrow">Why Handpan</p>
           <h2 className="mt-4 heading-display text-4xl md:text-5xl">
-            A sound that feels intimate, peaceful, and unforgettable.
+            An intimate, peaceful and truly unforgettable sound.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-foreground/80">
             The handpan has a soft, melodic, almost floating sound. It creates
