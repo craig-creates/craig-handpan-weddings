@@ -105,7 +105,7 @@ function HomePage() {
             and the quiet, important moments of the day.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm">
-            <Stat label="UK weddings since" value="2019" />
+            <Stat label="UK weddings since" value="2026" />
             <Stat label="Areas covered" value="Kent · London · Sussex · Surrey" />
           </div>
         </div>
