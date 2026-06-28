@@ -96,7 +96,7 @@ function HomePage() {
         <div className="md:col-span-7 md:order-1 md:pr-8">
           <p className="eyebrow">Why Handpan</p>
           <h2 className="mt-4 heading-display text-4xl md:text-5xl">
-            A sound that feels intimate, peaceful, and unforgettable.
+            An intimate, peaceful and truly unforgettable sound.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-foreground/80">
             The handpan has a soft, melodic, almost floating sound. It creates
@@ -105,7 +105,7 @@ function HomePage() {
             and the quiet, important moments of the day.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm">
-            <Stat label="UK weddings since" value="2019" />
+            <Stat label="UK weddings since" value="2026" />
             <Stat label="Areas covered" value="Kent · London · Sussex · Surrey" />
           </div>
         </div>
@@ -182,8 +182,8 @@ function HomePage() {
               Hear it before you imagine it.
             </h2>
             <p className="mt-5 text-cream/85 leading-relaxed">
-              The handpan is unfamiliar to many couples. Spend a few minutes with
-              the music — most people decide the moment they hear it.
+              The handpan is unfamiliar to many. Spend a few minutes with the
+              music — most people decide the moment they hear it.
             </p>
             <Link
               to="/listen"
