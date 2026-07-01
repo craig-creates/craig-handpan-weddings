@@ -65,9 +65,10 @@ function HomePage() {
             Live handpan music for soulful weddings.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-cream/90 leading-relaxed">
-            Live handpan performance for ceremonies, drinks receptions, wedding
-            breakfasts, outdoor weddings, elopements, and intimate celebrations
-            across Kent, London, Sussex, Surrey, and beyond.
+            Live handpan for drinks receptions — solo, or with double bass and
+            flute or violin. Also available for ceremonies, elopements, and
+            intimate celebrations across Kent, London, Sussex, Surrey, and
+            beyond.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link to="/contact" className="btn-primary">Check Availability</Link>
@@ -117,39 +118,39 @@ function HomePage() {
           <div className="max-w-2xl">
             <p className="eyebrow">Where it fits</p>
             <h2 className="mt-4 heading-display text-4xl md:text-5xl">
-              The moments handpan suits best.
+              Built for the drinks reception.
             </h2>
             <p className="mt-5 text-foreground/75 leading-relaxed">
-              From the first guest arriving to the last quiet song of the day —
-              chosen carefully, never intrusive.
+              Two hours of live music as your guests gather — with the option to
+              add ceremony music, or scale up to a duo or trio for a fuller sound.
             </p>
           </div>
 
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
-                title: "Ceremony",
-                body: "Guest arrival, aisle walk, signing of the register, and exit music.",
-              },
-              {
                 title: "Drinks Reception",
-                body: "Relaxed live background music after the ceremony as guests gather.",
+                body: "The core offering. Two hours of live handpan as guests arrive from the ceremony — calm, melodic, unobtrusive.",
               },
               {
-                title: "Wedding Breakfast",
-                body: "A gentle atmosphere during dining — present, but never loud.",
+                title: "Duo — with Double Bass",
+                body: "A warmer, fuller sound for larger receptions and grand spaces, while staying acoustic-forward.",
+              },
+              {
+                title: "Trio — Flute or Violin",
+                body: "The most cinematic option — handpan, double bass, and your choice of flute or violin.",
+              },
+              {
+                title: "Ceremony (add-on)",
+                body: "Guest arrival, aisle walk, signing of the register, and exit music — added to any package.",
               },
               {
                 title: "Outdoor Weddings",
                 body: "A natural acoustic sound that suits gardens, barns, and countryside venues.",
               },
               {
-                title: "Elopements",
-                body: "Minimal, emotional, and personal — held with care for two.",
-              },
-              {
-                title: "Intimate Celebrations",
-                body: "Vow renewals, blessings, and small private gatherings.",
+                title: "Elopements & Intimate",
+                body: "Minimal, emotional, personal — for elopements, vow renewals, and small private gatherings.",
               },
             ].map((c) => (
               <article
