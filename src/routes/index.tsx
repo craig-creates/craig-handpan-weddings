@@ -84,7 +84,7 @@ function HomePage() {
 
       {/* WHY HANDPAN */}
       <section className="container-prose py-28 grid md:grid-cols-12 gap-12 items-center">
-        <div className="md:col-span-5 md:order-2">
+        <div className="md:col-span-4 md:order-2">
           <img
             src={detailImg}
             alt="Close-up of hands playing a handpan"
@@ -94,7 +94,7 @@ function HomePage() {
             className="rounded-2xl w-full object-cover aspect-[4/5]"
           />
         </div>
-        <div className="md:col-span-7 md:order-1 md:pr-8">
+        <div className="md:col-span-8 md:order-1 md:pr-8">
           <p className="eyebrow">Why Handpan</p>
           <h2 className="mt-4 heading-display text-4xl md:text-5xl">
             An intimate, peaceful and truly unforgettable sound.
