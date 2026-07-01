@@ -65,10 +65,10 @@ function HomePage() {
             Live handpan music for soulful weddings.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-cream/90 leading-relaxed">
-            Live handpan for drinks receptions — solo, or with double bass and
-            flute or violin. Also available for ceremonies, elopements, and
-            intimate celebrations across Kent, London, Sussex, Surrey, and
-            beyond.
+            Live handpan ambience for drinks receptions — solo or with double
+            bass, flutes and violins. Also available for ceremonies,
+            elopements, and intimate celebrations across Kent, London, Sussex,
+            Surrey, and beyond.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link to="/contact" className="btn-primary">Check Availability</Link>
@@ -106,7 +106,7 @@ function HomePage() {
             and the quiet, important moments of the day.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm">
-            <Stat label="UK weddings since" value="2026" />
+            <Stat label="LIVE PERFORMANCES SINCE" value="2021" />
             <Stat label="Areas covered" value="Kent · London · Sussex · Surrey" />
           </div>
         </div>
