@@ -80,9 +80,8 @@ function ContactPage() {
                   label="Which part of the day?"
                   name="part"
                   options={[
-                    "Ceremony only",
-                    "Ceremony + drinks reception",
-                    "Half-day atmosphere",
+                    "Drinks reception",
+                    "Drinks reception + ceremony",
                     "Wedding breakfast / dining",
                     "Elopement / intimate",
                     "Not sure yet",
@@ -99,13 +98,15 @@ function ContactPage() {
                   label="Package interested in"
                   name="package"
                   options={[
-                    "Ceremony — from £350",
-                    "Ceremony + Drinks Reception — from £500",
-                    "Half-Day Atmosphere — from £750",
+                    "Solo Handpan — £600",
+                    "Handpan Duo (with double bass) — £1,050",
+                    "Handpan Trio (with flute or violin) — £1,450",
+                    "Ceremony add-on",
                     "Bespoke / Destination",
                     "Not sure yet",
                   ]}
                 />
+
 
                 <TextAreaField
                   label="Any special requests"

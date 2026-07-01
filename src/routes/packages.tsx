@@ -4,14 +4,18 @@ import { PageHeader } from "./weddings";
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
-      { title: "Wedding Handpan Packages & Pricing | From £350" },
+      { title: "Wedding Drinks Reception Music | Solo, Duo & Trio from £600" },
       {
         name: "description",
         content:
-          "Wedding handpan packages and pricing. Ceremony from £350, Ceremony + Drinks Reception from £500, Half-Day Atmosphere from £750, and bespoke quotes.",
+          "Live handpan music for wedding drinks receptions. Solo from £600, Handpan Duo with double bass from £1,050, and Handpan Trio with flute or violin from £1,450.",
       },
-      { property: "og:title", content: "Wedding Handpan Packages & Pricing | From £350" },
-      { property: "og:description", content: "Clear, calm pricing for live handpan wedding music." },
+      { property: "og:title", content: "Wedding Drinks Reception Music | Solo, Duo & Trio from £600" },
+      {
+        property: "og:description",
+        content:
+          "Solo, duo, and trio handpan music for wedding drinks receptions across the UK.",
+      },
       { property: "og:url", content: "/packages" },
     ],
     links: [{ rel: "canonical", href: "/packages" }],
@@ -21,44 +25,47 @@ export const Route = createFileRoute("/packages")({
 
 const packages = [
   {
-    name: "Ceremony",
-    price: "From £350",
-    body: "Includes guest arrival, aisle walk, signing of the register, and exit music.",
+    name: "Solo Handpan",
+    price: "£600",
+    body: "Two hours of live handpan music through your drinks reception — gentle, melodic, and completely acoustic.",
     bullets: [
-      "Up to ~45 minutes of live music",
+      "2 hours of live music",
       "Indoor or outdoor performance",
+      "Acoustic — no power needed in most spaces",
       "Professional setup and arrival",
     ],
     featured: false,
   },
   {
-    name: "Ceremony + Drinks Reception",
-    price: "From £500",
-    body: "Includes ceremony music plus 60–90 minutes of relaxed reception music.",
+    name: "Handpan Duo",
+    price: "£1,050",
+    body: "Handpan and double bass together — a warmer, fuller sound that still holds the calm, unobtrusive feel of the solo.",
     bullets: [
-      "Full ceremony coverage",
-      "60–90 minutes of reception music",
-      "Acoustic — no power needed in most spaces",
+      "Handpan + upright double bass",
+      "2 hours of live music",
+      "Ideal for larger receptions and grand spaces",
       "Most chosen by couples",
     ],
     featured: true,
   },
   {
-    name: "Half-Day Atmosphere",
-    price: "From £750",
-    body: "Includes ceremony, drinks reception, and gentle wedding breakfast ambience.",
+    name: "Handpan Trio",
+    price: "£1,450",
+    body: "Handpan, double bass, and your choice of flute or violin — the most cinematic option, arranged like a bespoke ensemble.",
     bullets: [
-      "Ceremony + reception + dining",
-      "Up to ~3 hours of music across the day",
-      "Coordinated with planners and photographers",
+      "Handpan + double bass + flute or violin",
+      "2 hours of live music",
+      "A standout musical moment for guests",
+      "Coordinated arrangements across the set",
     ],
     featured: false,
   },
   {
-    name: "Bespoke / Destination",
+    name: "Ceremony, Elopements & Bespoke",
     price: "Price on enquiry",
-    body: "For elopements, private estates, retreats, unusual venues, and longer travel.",
+    body: "Add ceremony music to any package, or ask about elopements, retreats, private estates, and destination weddings.",
     bullets: [
+      "Ceremony music as an add-on",
       "Elopements & vow renewals",
       "Multi-day events and retreats",
       "Destination and overseas weddings",
@@ -72,8 +79,8 @@ function PackagesPage() {
     <>
       <PageHeader
         eyebrow="Packages"
-        title="Live handpan packages for weddings."
-        intro="Most couples book the Ceremony + Drinks Reception package, starting from £500. Every package can be tailored — share your day and I'll send a clear quote."
+        title="Live music for your drinks reception."
+        intro="Every package is built around the drinks reception — two hours of live music as your guests gather after the ceremony. Start with solo handpan, or add double bass and flute or violin for a fuller sound."
       />
 
       <section className="container-prose pb-28">
@@ -114,8 +121,7 @@ function PackagesPage() {
         </div>
 
         <p className="mt-12 text-center text-sm text-muted-foreground max-w-xl mx-auto">
-          Prices are starting points and may vary with travel, timings, and venue
-          requirements. A bespoke quote is provided after a short enquiry.
+          Additional playing time, ceremony music, and further travel are all available on request — quoted individually so the day fits together properly.
         </p>
       </section>
     </>
