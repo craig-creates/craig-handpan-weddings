@@ -77,25 +77,25 @@ function WeddingsPage() {
 
 const sections = [
   {
-    kicker: "01 · Ceremony",
-    title: "The aisle, the vows, the exit.",
-    body: "Carefully chosen, gentle music for the most emotional minutes of your day.",
+    kicker: "01 · Drinks Reception",
+    title: "The heart of the day — live music as guests gather.",
+    body: "Two hours of live handpan music through your drinks reception. Warm, melodic, and unobtrusive — the natural home for this instrument. Add double bass, or double bass with flute or violin, for a fuller, more cinematic sound.",
+    bullets: [
+      "Solo, duo, or trio",
+      "Indoor or outdoor performance",
+      "Acoustic — no power needed in most spaces",
+      "Works alongside canapés and photos",
+    ],
+  },
+  {
+    kicker: "02 · Ceremony (add-on)",
+    title: "Add music to the aisle, the vows, the exit.",
+    body: "Ceremony music can be added to any drinks reception package — gentle, chosen carefully for the most emotional minutes of your day.",
     bullets: [
       "Guest arrival music",
       "Processional / aisle walk",
       "Signing of the register",
       "Recessional / exit music",
-    ],
-  },
-  {
-    kicker: "02 · Drinks Reception",
-    title: "Relaxed, live, present.",
-    body: "Soft melodic music as guests gather, talk, and find their footing in the celebration.",
-    bullets: [
-      "60–90 minutes of live music",
-      "Indoor or outdoor performance",
-      "Acoustic — usually no power needed",
-      "Works alongside canapés and photos",
     ],
   },
   {
@@ -110,6 +110,7 @@ const sections = [
     ],
   },
 ];
+
 
 export function PageHeader({
   eyebrow,

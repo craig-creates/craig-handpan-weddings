@@ -200,30 +200,31 @@ function HomePage() {
         <div className="max-w-2xl">
           <p className="eyebrow">Wedding Packages</p>
           <h2 className="mt-4 heading-display text-4xl md:text-5xl">
-            Music shaped around your day.
+            Built around your drinks reception.
           </h2>
           <p className="mt-5 text-foreground/75 leading-relaxed">
-            Three thoughtful starting points — each can be tailored to your
-            ceremony, venue, and timings.
+            Two hours of live music as your guests gather after the ceremony —
+            start with solo handpan, or add double bass and flute or violin for
+            a fuller, more cinematic sound.
           </p>
         </div>
 
         <div className="mt-14 grid md:grid-cols-3 gap-5">
           <PackageCard
             image={ceremonyImg}
-            title="Ceremony Performance"
-            body="For guest arrival, aisle walk, signing of the register, and exit music."
+            title="Solo Handpan — £600"
+            body="Two hours of live handpan through the drinks reception. Calm, melodic, completely acoustic."
           />
           <PackageCard
             image={receptionImg}
-            title="Ceremony + Drinks Reception"
-            body="A complete live music option for the emotional and social parts of the day."
+            title="Handpan Duo — £1,050"
+            body="Handpan and double bass together — a warmer, fuller sound for larger receptions and grand spaces."
             featured
           />
           <PackageCard
             image={elopementImg}
-            title="Bespoke Wedding Performance"
-            body="For elopements, retreats, outdoor weddings, private estates, and unusual venues."
+            title="Handpan Trio — £1,450"
+            body="Handpan, double bass, and your choice of flute or violin — a bespoke ensemble feel for the reception."
           />
         </div>
 
@@ -231,6 +232,7 @@ function HomePage() {
           <Link to="/packages" className="btn-primary">View Packages</Link>
         </div>
       </section>
+
 
       {/* TRUST */}
       <section className="bg-muted/50 py-28">
