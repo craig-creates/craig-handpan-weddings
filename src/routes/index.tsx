@@ -137,8 +137,8 @@ function HomePage() {
                 body: "A warmer, fuller sound for larger receptions and grand spaces, while staying acoustic-forward.",
               },
               {
-                title: "Trio — Flute or Violin",
-                body: "The most cinematic option — handpan, double bass, and your choice of flute or violin.",
+                title: "Trio — with Clarinet",
+                body: "The most cinematic option — handpan, double bass, and clarinet.",
               },
               {
                 title: "Ceremony (add-on)",
