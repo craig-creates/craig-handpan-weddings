@@ -67,7 +67,7 @@ function HomePage() {
           <p className="mt-6 max-w-2xl text-lg text-cream/90 leading-relaxed">
             Live handpan ambience for drinks receptions — solo or with double
             bass and clarinet. Also available for ceremonies,
-            elopements, and intimate celebrations across Kent, London, Sussex,
+            elopements, and intimate celebrations across London, Surrey, Sussex, Kent & Essex,
             Surrey, and beyond.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
