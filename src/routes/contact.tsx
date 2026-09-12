@@ -22,10 +22,62 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (pending) return;
+    setError(null);
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const str = (key: string) => {
+      const v = fd.get(key);
+      return typeof v === "string" && v.trim() !== "" ? v.trim() : undefined;
+    };
+    const guestsRaw = str("guests");
+
+    const payload = {
+      names: str("names") ?? "",
+      email: str("email") ?? "",
+      phone: str("phone"),
+      date: str("date"),
+      venue: str("venue"),
+      part: str("part"),
+      guests: guestsRaw ? Number(guestsRaw) : undefined,
+      setting: str("setting"),
+      packageInterest: str("package"),
+      requests: str("requests"),
+      referral: str("referral"),
+      company: str("company"), // honeypot
+    };
+
+    setPending(true);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const body = (await res.json().catch(() => null)) as
+        | { ok: boolean; error?: string }
+        | null;
+      if (!res.ok || !body?.ok) {
+        setError(
+          body?.error ??
+            "Something went wrong sending your enquiry. Please email craig@handpanweddings.com directly.",
+        );
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Something went wrong sending your enquiry. Please email craig@handpanweddings.com directly.",
+      );
+    } finally {
+      setPending(false);
+    }
   };
 
   return (
@@ -117,8 +169,22 @@ function ContactPage() {
                 <Field label="How did you find me?" name="referral" className="sm:col-span-2" />
               </div>
 
-              <button type="submit" className="btn-primary w-full md:w-auto">
-                Check My Wedding Date
+              {/* Honeypot — hidden from humans, catches spam bots */}
+              <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+                <label>
+                  Company
+                  <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
+
+              {error && (
+                <p className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-foreground">
+                  {error}
+                </p>
+              )}
+
+              <button type="submit" disabled={pending} className="btn-primary w-full md:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
+                {pending ? "Sending…" : "Check My Wedding Date"}
               </button>
               <p className="text-xs text-muted-foreground">
                 By sending this enquiry you agree to be contacted about your wedding date.
