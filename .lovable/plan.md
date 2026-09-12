@@ -8,7 +8,7 @@ It will be built so the whole site stays portable: if you export to GitHub and h
 
 1. The form sends the details to a small endpoint that runs on the server (works the same on Lovable hosting and on Cloudflare).
 2. You get an email with every field: names, email, phone, wedding date, venue, part of the day, guest count, indoor/outdoor, package interest, special requests, how they found you.
-3. HubSpot gets a new contact (or updates an existing one matched by email) and a new deal in your pipeline, named after the couple, with the wedding details attached as a note and the package value where one is chosen.
+3. HubSpot gets a new contact (or updates an existing one matched by email) with the standard fields filled in properly — name split into first/last name, email, and phone mapped to HubSpot's built-in contact properties so they show in the right columns and are searchable. A new deal is created in your pipeline, named after the couple, with the wedding details attached as a note and the package value where one is chosen.
 4. The couple sees the thank-you message; if anything fails behind the scenes, they see a friendly error with your email address so nothing is lost.
 
 The email is sent first, so even if HubSpot ever rejects something, the enquiry still reaches your inbox.
@@ -37,4 +37,5 @@ As well as notifying you, the form sends the couple a short, warm confirmation e
 - `src/lib/enquiry.server.ts` holds two helpers: `sendEnquiryEmail()` (POST to `https://api.resend.com/emails`) and `createHubspotRecords()` (POST `/crm/v3/objects/contacts` with an idempotent upsert by email, `/crm/v3/objects/deals`, then the association and a note). Direct provider calls with `fetch` — no Lovable connector gateway, so nothing breaks off-platform.
 - Secrets read inside the handler via `process.env`: `RESEND_API_KEY`, `HUBSPOT_PRIVATE_APP_TOKEN`, `ENQUIRY_NOTIFY_EMAIL`. On Cloudflare these are set as Worker environment variables.
 - `src/routes/contact.tsx` form becomes controlled/`FormData`-driven with pending and error states; keeps the existing styling and success panel.
-- Deal properties: `dealname`, `amount` (from the selected package), `pipeline`/`dealstage` default, `closedate` from the wedding date. Wedding-specific fields go into a note rather than custom properties, so no HubSpot schema changes are needed.
+- Contact properties: `email` (used as the upsert match key), `firstname`, `lastname`, `phone`, plus `hs_lead_status` set to `NEW`. These are HubSpot built-ins — no custom schema needed.
+- Deal properties: `dealname`, `amount` (from the selected package), `pipeline`/`dealstage` default, `closedate` from the wedding date. Wedding-specific fields (venue, part of day, guest count, indoor/outdoor, how they found you, message) go into a note on the deal rather than custom properties, so no HubSpot schema changes are needed.
