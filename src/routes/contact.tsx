@@ -39,7 +39,7 @@ function ContactPage() {
       <section className="container-prose pb-28 grid lg:grid-cols-12 gap-12">
         <aside className="lg:col-span-4 space-y-8">
           <Info title="Areas covered">
-            Kent · Canterbury · London · Sussex · Surrey. Further travel by arrangement.
+            London · Surrey · Sussex · Kent & Essex. Further travel by arrangement.
           </Info>
           <Info title="Response time">
             Most enquiries are answered within one to two days.
