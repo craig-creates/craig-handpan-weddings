@@ -79,7 +79,7 @@ const sections = [
   {
     kicker: "01 · Drinks Reception",
     title: "The heart of the day — live music as guests gather.",
-    body: "Two hours of live handpan music through your drinks reception. Warm, melodic, and unobtrusive — the natural home for this instrument. Add double bass, or double bass with flute or violin, for a fuller, more cinematic sound.",
+    body: "Two hours of live handpan music through your drinks reception. Warm, melodic, and unobtrusive — the natural home for this instrument. Add double bass, or double bass with clarinet, for a fuller, more cinematic sound.",
     bullets: [
       "Solo, duo, or trio",
       "Indoor or outdoor performance",
