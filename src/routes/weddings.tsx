@@ -86,7 +86,7 @@ const sections = [
     bullets: [
       "Solo, duo, or trio",
       "Indoor or outdoor performance",
-      "Acoustic — no power needed in most spaces",
+      
       "Works alongside canapés and photos",
     ],
   },
