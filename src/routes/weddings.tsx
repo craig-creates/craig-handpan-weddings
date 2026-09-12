@@ -1,20 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import ceremonyImg from "@/assets/ceremony.jpg";
+import { url, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/weddings")({
   head: () => ({
     meta: [
-      { title: "Wedding Handpan Music | Ceremony, Reception & Outdoor Weddings" },
+      { title: "Wedding Handpan Music | Drinks Receptions & Ceremonies" },
       {
         name: "description",
         content:
-          "Live handpan music for wedding ceremonies, drinks receptions, outdoor weddings, and elopements across London, Surrey, Sussex, Kent & Essex.",
+          "Live handpan music for wedding drinks receptions, ceremonies, outdoor weddings, and elopements across London, Surrey, Sussex, Kent and Essex.",
       },
-      { property: "og:title", content: "Wedding Handpan Music | Ceremony, Reception & Outdoor Weddings" },
+      { property: "og:title", content: "Wedding Handpan Music | Drinks Receptions & Ceremonies" },
       { property: "og:description", content: "Live handpan music tailored to each part of your wedding day." },
-      { property: "og:url", content: "/weddings" },
+      { property: "og:url", content: url("/weddings") },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/weddings" }],
+    links: [{ rel: "canonical", href: url("/weddings") }],
   }),
   component: WeddingsPage,
 });

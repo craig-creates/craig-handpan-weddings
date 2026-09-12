@@ -4,36 +4,36 @@ import ceremonyImg from "@/assets/ceremony.jpg";
 import receptionImg from "@/assets/reception.jpg";
 import elopementImg from "@/assets/elopement.jpg";
 import detailImg from "@/assets/handpan-detail.jpg";
+import { url, SITE_URL, BRAND_NAME } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
+      { title: "Handpan Weddings | Live Handpan Music for Drinks Receptions" },
       {
         name: "description",
         content:
-          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.",
+          "Live handpan music for wedding drinks receptions across London, Surrey, Sussex, Kent and Essex. Solo, duo with double bass, or trio with clarinet.",
       },
-      { property: "og:title", content: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
-      {
-        property: "og:description",
-        content:
-          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.",
-      },
-      { property: "og:url", content: "/" },
+      { property: "og:title", content: "Handpan Weddings | Live Handpan Music for Drinks Receptions" },
+      { property: "og:description", content: "Live handpan music for wedding drinks receptions across London, Surrey, Sussex, Kent and Essex." },
+      { property: "og:url", content: url("/") },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: url("/") }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MusicGroup",
-          name: "Craig — Handpan Wedding Musician",
+          name: BRAND_NAME,
           genre: ["Handpan", "Acoustic", "Wedding"],
           areaServed: ["London", "Surrey", "Sussex", "Kent", "Essex"],
+          url: SITE_URL,
           description:
-            "Live handpan music for weddings, ceremonies, drinks receptions and intimate celebrations across the UK.",
+            "Live handpan music for wedding drinks receptions across London, Surrey, Sussex, Kent and Essex.",
         }),
       },
     ],

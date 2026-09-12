@@ -1,21 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "./weddings";
 import heroImg from "@/assets/hero-handpan.jpg";
+import { url, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Craig | UK Handpan Wedding Musician" },
+      { title: "About | Handpan Weddings" },
       {
         name: "description",
         content:
-          "Craig is a UK handpan musician creating calm, atmospheric live music for weddings, ceremonies, and intimate celebrations.",
+          "Craig is a UK handpan musician creating calm, atmospheric live music for wedding drinks receptions, ceremonies, and intimate celebrations.",
       },
-      { property: "og:title", content: "About Craig | UK Handpan Wedding Musician" },
+      { property: "og:title", content: "About | Handpan Weddings" },
       { property: "og:description", content: "Calm, atmospheric live handpan music for weddings across the UK." },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: url("/about") },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: url("/about") }],
   }),
   component: AboutPage,
 });
