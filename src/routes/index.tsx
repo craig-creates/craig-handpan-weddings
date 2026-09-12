@@ -66,7 +66,7 @@ function HomePage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-cream/90 leading-relaxed">
             Live handpan ambience for drinks receptions — solo or with double
-            bass, flutes and violins. Also available for ceremonies,
+            bass and clarinet. Also available for ceremonies,
             elopements, and intimate celebrations across Kent, London, Sussex,
             Surrey, and beyond.
           </p>
