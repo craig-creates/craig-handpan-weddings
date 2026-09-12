@@ -8,7 +8,7 @@ It will be built so the whole site stays portable: if you export to GitHub and h
 
 1. The form sends the details to a small endpoint that runs on the server (works the same on Lovable hosting and on Cloudflare).
 2. You get an email with every field: names, email, phone, wedding date, venue, part of the day, guest count, indoor/outdoor, package interest, special requests, how they found you.
-3. HubSpot gets a new contact (or updates an existing one matched by email) and a new deal in your pipeline, named after the couple, with the wedding details attached as a note and the package value where one is chosen.
+3. HubSpot gets a new contact (or updates an existing one matched by email) with the standard fields filled in properly — name split into first/last name, email, and phone mapped to HubSpot's built-in contact properties so they show in the right columns and are searchable. A new deal is created in your pipeline, named after the couple, with the wedding details attached as a note and the package value where one is chosen.
 4. The couple sees the thank-you message; if anything fails behind the scenes, they see a friendly error with your email address so nothing is lost.
 
 The email is sent first, so even if HubSpot ever rejects something, the enquiry still reaches your inbox.
