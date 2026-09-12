@@ -44,11 +44,11 @@ const faqs = [
   },
   {
     q: "Do you need power?",
-    a: "Usually no — the handpan is fully acoustic. Power may be needed if amplification is required for a larger space.",
+    a: "Usually yes, however the handpan is fully acoustic. Smaller, intimate settings may not require power while larger spaces benefit from amplification.",
   },
   {
     q: "Can you play outdoors?",
-    a: "Yes, weather permitting. A covered or shaded area is needed in rain, strong sun, or difficult weather.",
+    a: "Yes, weather permitting. A covered or shaded area is needed in rain, strong sun, or difficult weather. The handpans are particularly sensitive to prolonged sunlight exposure.",
   },
   {
     q: "How much space do you need?",
