@@ -18,3 +18,4 @@
 ## Done
 - [x] Resend domain verified on handpanweddings.com
 - [x] End-to-end enquiry test passed — email delivered via Resend, HubSpot contact/deal attempted
+- [x] Cloudflare runtime bindings supported by the enquiry endpoint

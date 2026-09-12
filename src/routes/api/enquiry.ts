@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { sendEnquiryEmails, createHubspotRecords } from "@/lib/enquiry.server";
+import { getRuntimeEnv } from "@/lib/runtime-env.server";
 
 const enquirySchema = z.object({
   names: z.string().trim().min(2).max(200),
@@ -76,7 +77,7 @@ export const Route = createFileRoute("/api/enquiry")({
           return Response.json({ ok: true });
         }
 
-        const notifyEmail = process.env["ENQUIRY_NOTIFY_EMAIL"];
+        const notifyEmail = getRuntimeEnv("ENQUIRY_NOTIFY_EMAIL");
         if (!notifyEmail) {
           console.error("ENQUIRY_NOTIFY_EMAIL is not configured");
           return Response.json(

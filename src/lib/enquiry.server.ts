@@ -2,6 +2,8 @@
 // Direct provider API calls (no Lovable connector gateway) so the site stays
 // portable when exported to GitHub and hosted on Cloudflare or anywhere else.
 
+import { getRuntimeEnv } from "./runtime-env.server";
+
 export interface EnquiryData {
   names: string;
   email: string;
@@ -75,7 +77,7 @@ function row(label: string, value: string | number | undefined): string {
 }
 
 export async function sendEnquiryEmails(data: EnquiryData, notifyEmail: string): Promise<void> {
-  const apiKey = process.env["RESEND_API_KEY"];
+  const apiKey = getRuntimeEnv("RESEND_API_KEY");
   if (!apiKey) throw new Error("RESEND_API_KEY is not configured");
 
   const dateLabel = data.date
@@ -319,7 +321,7 @@ function noteBody(data: EnquiryData): string {
 }
 
 export async function createHubspotRecords(data: EnquiryData): Promise<void> {
-  const token = process.env["HUBSPOT_PRIVATE_APP_TOKEN"];
+  const token = getRuntimeEnv("HUBSPOT_PRIVATE_APP_TOKEN");
   if (!token) throw new Error("HUBSPOT_PRIVATE_APP_TOKEN is not configured");
 
   const contactId = await upsertContact(token, data);
