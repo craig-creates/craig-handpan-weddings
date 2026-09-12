@@ -8,7 +8,7 @@ export function SiteFooter() {
           <div className="font-serif text-2xl">Craig · Handpan</div>
           <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
             Live handpan music for soulful weddings, ceremonies, and intimate
-            celebrations across Kent, London, Sussex, Surrey, and beyond.
+            celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.
           </p>
         </div>
 
@@ -35,8 +35,8 @@ export function SiteFooter() {
         <div>
           <div className="eyebrow">Enquiries</div>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Available for weddings across Kent, Canterbury, London, Sussex &amp;
-            Surrey. Further travel by arrangement.
+            Available for weddings across London, Surrey, Sussex, Kent &amp;
+            Essex. Further travel by arrangement.
           </p>
           <Link to="/contact" className="btn-outline mt-5 !py-2.5 !px-5 text-sm">
             Check My Wedding Date

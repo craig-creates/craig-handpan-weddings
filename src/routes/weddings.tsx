@@ -8,7 +8,7 @@ export const Route = createFileRoute("/weddings")({
       {
         name: "description",
         content:
-          "Live handpan music for wedding ceremonies, drinks receptions, outdoor weddings, and elopements across Kent, London, Sussex, and Surrey.",
+          "Live handpan music for wedding ceremonies, drinks receptions, outdoor weddings, and elopements across London, Surrey, Sussex, Kent & Essex.",
       },
       { property: "og:title", content: "Wedding Handpan Music | Ceremony, Reception & Outdoor Weddings" },
       { property: "og:description", content: "Live handpan music tailored to each part of your wedding day." },

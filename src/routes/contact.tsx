@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Check availability for your wedding date. Live handpan music for weddings, ceremonies, and elopements across Kent, London, Sussex, and Surrey.",
+          "Check availability for your wedding date. Live handpan music for weddings, ceremonies, and elopements across London, Surrey, Sussex, Kent & Essex.",
       },
       { property: "og:title", content: "Check My Wedding Date | Handpan Musician Enquiry" },
       { property: "og:description", content: "Send a wedding enquiry and check availability for your date." },
@@ -39,7 +39,7 @@ function ContactPage() {
       <section className="container-prose pb-28 grid lg:grid-cols-12 gap-12">
         <aside className="lg:col-span-4 space-y-8">
           <Info title="Areas covered">
-            Kent · Canterbury · London · Sussex · Surrey. Further travel by arrangement.
+            London · Surrey · Sussex · Kent & Essex. Further travel by arrangement.
           </Info>
           <Info title="Response time">
             Most enquiries are answered within one to two days.
