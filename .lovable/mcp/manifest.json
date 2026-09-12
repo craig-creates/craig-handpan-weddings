@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "sdk_version": "2.0.4",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "soulful-wedding-sounds",
+      "version": "0.1.0",
+      "title": "Soulful Wedding Sounds"
+    },
+    "tools": [
+      {
+        "name": "list_packages",
+        "title": "List wedding music packages",
+        "description": "List the live handpan wedding packages and prices (solo, duo with double bass, trio with clarinet, and bespoke options).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_faqs",
+        "title": "List frequently asked questions",
+        "description": "List the published FAQ answers about booking live handpan wedding music. Optionally filter by a keyword.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Optional keyword to filter questions and answers, e.g. 'outdoor' or 'travel'.",
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_booking_info",
+        "title": "Get booking and coverage info",
+        "description": "Get the areas covered, booking process, contact details, and how to send a wedding enquiry.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

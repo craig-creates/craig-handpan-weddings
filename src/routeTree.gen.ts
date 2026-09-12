@@ -12,12 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeddingsRouteImport } from './routes/weddings'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ListenRouteImport } from './routes/listen'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiEnquiryRouteImport } from './routes/api/enquiry'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 
 const WeddingsRoute = WeddingsRouteImport.update({
   id: '/weddings',
@@ -32,6 +34,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ListenRoute = ListenRouteImport.update({
@@ -64,6 +71,12 @@ const ApiEnquiryRoute = ApiEnquiryRouteImport.update({
   path: '/api/enquiry',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -71,9 +84,11 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/listen': typeof ListenRoute
+  '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/weddings': typeof WeddingsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/api/enquiry': typeof ApiEnquiryRoute
 }
 export interface FileRoutesByTo {
@@ -82,9 +97,11 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/listen': typeof ListenRoute
+  '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/weddings': typeof WeddingsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/api/enquiry': typeof ApiEnquiryRoute
 }
 export interface FileRoutesById {
@@ -94,9 +111,11 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/listen': typeof ListenRoute
+  '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/weddings': typeof WeddingsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/api/enquiry': typeof ApiEnquiryRoute
 }
 export interface FileRouteTypes {
@@ -107,9 +126,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/listen'
+    | '/mcp'
     | '/packages'
     | '/sitemap.xml'
     | '/weddings'
+    | '/.well-known/oauth-protected-resource'
     | '/api/enquiry'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -118,9 +139,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/listen'
+    | '/mcp'
     | '/packages'
     | '/sitemap.xml'
     | '/weddings'
+    | '/.well-known/oauth-protected-resource'
     | '/api/enquiry'
   id:
     | '__root__'
@@ -129,9 +152,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/listen'
+    | '/mcp'
     | '/packages'
     | '/sitemap.xml'
     | '/weddings'
+    | '/.well-known/oauth-protected-resource'
     | '/api/enquiry'
   fileRoutesById: FileRoutesById
 }
@@ -141,9 +166,11 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   ListenRoute: typeof ListenRoute
+  McpRoute: typeof McpRoute
   PackagesRoute: typeof PackagesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WeddingsRoute: typeof WeddingsRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   ApiEnquiryRoute: typeof ApiEnquiryRoute
 }
 
@@ -168,6 +195,13 @@ declare module '@tanstack/react-router' {
       path: '/packages'
       fullPath: '/packages'
       preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/listen': {
@@ -212,6 +246,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiEnquiryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -221,9 +262,12 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   ListenRoute: ListenRoute,
+  McpRoute: McpRoute,
   PackagesRoute: PackagesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WeddingsRoute: WeddingsRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   ApiEnquiryRoute: ApiEnquiryRoute,
 }
 export const routeTree = rootRouteImport
