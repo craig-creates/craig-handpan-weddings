@@ -8,7 +8,7 @@ export const Route = createFileRoute("/packages")({
       {
         name: "description",
         content:
-          "Live handpan music for wedding drinks receptions. Solo from £600, Handpan Duo with double bass from £1,050, and Handpan Trio with flute or violin from £1,450.",
+          "Live handpan music for wedding drinks receptions. Solo from £600, Handpan Duo with double bass from £1,050, and Handpan Trio with clarinet from £1,450.",
       },
       { property: "og:title", content: "Wedding Drinks Reception Music | Solo, Duo & Trio from £600" },
       {
