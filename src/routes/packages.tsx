@@ -80,7 +80,7 @@ function PackagesPage() {
       <PageHeader
         eyebrow="Packages"
         title="Live music for your drinks reception."
-        intro="Every package is built around the drinks reception — two hours of live music as your guests gather after the ceremony. Start with solo handpan, or add double bass and flute or violin for a fuller sound."
+        intro="Every package is built around the drinks reception — two hours of live music as your guests gather after the ceremony. Start with solo handpan, or add double bass and clarinet for a fuller sound."
       />
 
       <section className="container-prose pb-28">
