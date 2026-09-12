@@ -323,6 +323,7 @@ export async function createHubspotRecords(data: EnquiryData): Promise<void> {
   if (!token) throw new Error("HUBSPOT_PRIVATE_APP_TOKEN is not configured");
 
   const contactId = await upsertContact(token, data);
+  const ensuredProps = await ensureDealProperties(token);
 
   const dealProperties: Record<string, string> = {
     dealname: `${data.names} — wedding${data.date ? ` ${data.date}` : ""}`,
@@ -334,6 +335,23 @@ export async function createHubspotRecords(data: EnquiryData): Promise<void> {
   if (data.date) {
     // Noon UTC avoids timezone shifting the calendar date.
     dealProperties.closedate = String(new Date(`${data.date}T12:00:00Z`).getTime());
+  }
+
+  // Wedding specifics into their own deal fields — only ones that exist.
+  const customValues: Record<string, string | number | undefined> = {
+    wedding_date: data.date, // date properties accept YYYY-MM-DD
+    wedding_venue: data.venue,
+    part_of_day: data.part,
+    package_interest: data.packageInterest,
+    guest_count: data.guests,
+    wedding_setting: data.setting,
+    special_requests: data.requests,
+    referral_source: data.referral,
+  };
+  for (const [name, value] of Object.entries(customValues)) {
+    if (ensuredProps.has(name) && value !== undefined && value !== "") {
+      dealProperties[name] = String(value);
+    }
   }
 
   const dealRes = await hubspot(
