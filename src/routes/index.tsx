@@ -205,7 +205,7 @@ function HomePage() {
           </h2>
           <p className="mt-5 text-foreground/75 leading-relaxed">
             Two hours of live music as your guests gather after the ceremony —
-            start with solo handpan, or add double bass and flute or violin for
+            start with solo handpan, or add double bass and clarinet for
             a fuller, more cinematic sound.
           </p>
         </div>
