@@ -199,11 +199,6 @@ function HomePage() {
           <h2 className="mt-4 heading-display text-4xl md:text-5xl">
             Explore your options...
           </h2>
-          <p className="mt-5 text-foreground/75 leading-relaxed">
-            Two hours of live music as your guests gather after the ceremony —
-            start with solo handpan, or add double bass and clarinet for
-            a fuller, more cinematic sound.
-          </p>
         </div>
 
         <div className="mt-14 grid md:grid-cols-3 gap-5">
