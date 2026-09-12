@@ -21,11 +21,11 @@ You've bought **handpanweddings.com** and are connecting Zoho Mail for your inbo
 
 ## What you need to provide
 
-- **Resend account + API key** (free tier is plenty). Verify handpanweddings.com in Resend by adding the DKIM/SPF records it shows you — these sit alongside the Zoho MX records without conflict.
-- **HubSpot private app token** with contact and deal write permissions — you create this in HubSpot as an admin.
-- **Your Zoho Mail inbox address** (e.g. craig@handpanweddings.com) — where enquiry notifications are sent.
+- **Resend API key** ✅ — already saved securely.
+- **Your Zoho Mail inbox address** ✅ — craig@handpanweddings.com. (I'll store this as a config value when we build.)
+- **HubSpot private app token** with contact and deal write permissions — you create this in HubSpot as an admin. Hand it over whenever it's ready.
 
-Both keys get stored securely, never in the code.
+One thing left on Resend's side: verify **handpanweddings.com** by adding the DKIM/SPF records Resend shows you (they sit alongside your Zoho MX records with no conflict). Until that's done, sending works but from a test address.
 
 ## Confirmation email to the couple
 
