@@ -8,7 +8,7 @@ export function SiteFooter() {
           <div className="font-serif text-2xl">Craig · Handpan</div>
           <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
             Live handpan music for soulful weddings, ceremonies, and intimate
-            celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.
+            celebrations across London, Surrey, Sussex, Kent, Essex, and beyond.
           </p>
         </div>
 
