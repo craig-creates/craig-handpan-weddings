@@ -239,9 +239,9 @@ function HomePage() {
       <section className="bg-muted/50 py-28">
         <div className="container-prose grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <p className="eyebrow">Reliable, refined</p>
+            <p className="eyebrow">RELIABLY REFINED</p>
             <h2 className="mt-4 heading-display text-4xl md:text-5xl">
-              A musician your venue will be happy to work with.
+              Professional musicians experienced in collaborating with venues & planners
             </h2>
             <p className="mt-5 text-foreground/75 leading-relaxed">
               The day matters. Every detail — from the first email to setting up
