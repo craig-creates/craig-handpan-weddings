@@ -76,7 +76,7 @@ function HomePage() {
               to="/listen"
               className="btn-outline border-cream/40 text-cream hover:bg-cream/10 hover:border-cream/60"
             >
-              Listen
+              Watch & Listen
             </Link>
           </div>
         </div>
@@ -101,7 +101,7 @@ function HomePage() {
             intimate&nbsp;soundscape.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-foreground/80">
-            The handpan's soft, floating soundscape creates atmosphere without
+            The handpan's soft, floating melodies creates atmosphere without
             overpowering conversations and connections. An ideal choice for
             emotional ceremonies, relaxed drinks receptions, outdoor celebrations,
             and all those intimate moments throughout the day.
