@@ -127,19 +127,19 @@ function HomePage() {
             {[
               {
                 title: "Drinks Reception",
-                body: "The core offering. Two hours of live handpan as guests arrive from the ceremony — calm, melodic, unobtrusive.",
+                body: "The core offering. Two hours of live handpan as guests arrive from the ceremony.",
               },
               {
                 title: "Duo — with Double Bass",
-                body: "A warmer, fuller sound for larger receptions and grand spaces, while staying acoustic-forward.",
+                body: "A warmer, fuller sound for greater depth, particularly suited to larger spaces.",
               },
               {
                 title: "Trio — with Clarinet",
-                body: "The most cinematic option — handpan, double bass, and clarinet.",
+                body: "The full cinematic option — handpan, double bass, and clarinet for richness & warmth.",
               },
               {
                 title: "Ceremony",
-                body: "Guest arrival, aisle walk, signing of the register, and exit music — added to any package.",
+                body: "Guest arrival, aisle walk, signing of the register, and exit music.",
               },
               {
                 title: "Outdoor Weddings",
@@ -177,11 +177,10 @@ function HomePage() {
           <div className="px-8 py-24 md:px-16 md:py-32 text-cream max-w-2xl">
             <p className="text-[0.7rem] tracking-[0.3em] uppercase text-cream/85">Listen</p>
             <h2 className="mt-4 heading-display text-4xl md:text-5xl text-cream">
-              Hear it before you imagine it.
+              More than your imagination...
             </h2>
             <p className="mt-5 text-cream/85 leading-relaxed">
-              The handpan is unfamiliar to many. Spend a few minutes with the
-              music — most people decide the moment they hear it.
+              The handpan can be unfamiliar to many. Spend a few minutes with the music, most people decide the moment they hear it.
             </p>
             <Link
               to="/listen"
