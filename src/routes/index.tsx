@@ -107,7 +107,7 @@ function HomePage() {
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm">
             <Stat label="LIVE PERFORMANCES SINCE" value="2021" />
-            <Stat label="Areas covered" value="London · Surrey · Sussex · Kent & Essex" />
+            <Stat label="Areas covered" value="London · Surrey · Sussex · Kent  · Essex · " />
           </div>
         </div>
       </section>
