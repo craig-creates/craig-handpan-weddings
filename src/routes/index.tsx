@@ -76,7 +76,7 @@ function HomePage() {
               to="/listen"
               className="btn-outline border-cream/40 text-cream hover:bg-cream/10 hover:border-cream/60"
             >
-              Listen to the Handpan
+              Listen
             </Link>
           </div>
         </div>
@@ -190,7 +190,7 @@ function HomePage() {
               to="/listen"
               className="btn-outline mt-8 border-cream/40 text-cream hover:bg-cream/10 hover:border-cream/60"
             >
-              Listen &amp; Watch
+              Watch &amp; Listen
             </Link>
           </div>
         </div>
