@@ -197,7 +197,7 @@ function HomePage() {
         <div className="max-w-2xl">
           <p className="eyebrow">Wedding Packages</p>
           <h2 className="mt-4 heading-display text-4xl md:text-5xl">
-            Built around your drinks reception.
+            Explore your options...
           </h2>
           <p className="mt-5 text-foreground/75 leading-relaxed">
             Two hours of live music as your guests gather after the ceremony —
