@@ -29,7 +29,7 @@ One thing left on Resend's side: verify **handpanweddings.com** by adding the DK
 
 ## Confirmation email to the couple
 
-As well as notifying you, the form sends the couple a short, warm confirmation email from notifications@handpanweddings.com — "Thanks, I've got your enquiry and I'll come back to you within a day or two." This goes live once Resend verification completes.
+As well as notifying you, the form sends the couple a short, warm confirmation email **from `craig@handpanweddings.com`** — "Thanks, I've got your enquiry and I'll come back to you within a day or two." They can reply directly to that address. This goes live once Resend verification completes.
 
 ## Technical notes
 
