@@ -6,7 +6,7 @@ export const BRAND_NAME = "Handpan Weddings";
 export const BRAND_TAGLINE = "Live handpan music for soulful weddings";
 export const COVERAGE_AREAS = "London, Surrey, Sussex, Kent, Essex";
 export const CONTACT_EMAIL = "craig@handpanweddings.com";
-export const INSTAGRAM_URL = "https://instagram.com/handpanweddings";
+export const INSTAGRAM_URL = "https://www.instagram.com/kohpancraig/";
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 /** Build an absolute URL for a path on this site. */
