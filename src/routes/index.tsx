@@ -68,7 +68,7 @@ function HomePage() {
             Live handpan ambience for drinks receptions — solo or with double
             bass and clarinet. Also available for ceremonies,
             elopements, and intimate celebrations across London, Surrey,
-            Sussex, Kent & Essex, and beyond.
+            Sussex, Kent, Essex, and beyond.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link to="/contact" className="btn-primary">Check Availability</Link>
