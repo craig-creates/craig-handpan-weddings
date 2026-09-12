@@ -141,7 +141,7 @@ function HomePage() {
                 body: "The most cinematic option — handpan, double bass, and clarinet.",
               },
               {
-                title: "Ceremony (add-on)",
+                title: "Ceremony",
                 body: "Guest arrival, aisle walk, signing of the register, and exit music — added to any package.",
               },
               {
