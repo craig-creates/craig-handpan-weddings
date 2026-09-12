@@ -17,7 +17,7 @@ The email is sent first, so even if HubSpot ever rejects something, the enquiry 
 
 You've bought **handpanweddings.com** and are connecting Zoho Mail for your inbox. Enquiry notifications will arrive at your Zoho address (e.g. craig@handpanweddings.com) — that's where you'll read them.
 
-**Important — why we still need a sending service (Resend):** Cloudflare Workers can't open raw SMTP connections, so the app can't send email via Zoho's SMTP directly. It needs an HTTP-based email API. **Resend** is the simplest: you paste an API key, verify the domain with a few DNS records (DKIM/SPF — separate from Zoho's MX records, so they coexist with no conflict), and the app sends from `notifications@handpanweddings.com`. The email lands in your Zoho inbox like any other message.
+**Important — why we still need a sending service (Resend):** Cloudflare Workers can't open raw SMTP connections, so the app can't send email via Zoho's SMTP directly. It needs an HTTP-based email API. **Resend** is the simplest: you paste an API key, verify the domain with a few DNS records (DKIM/SPF — separate from Zoho's MX records, so they coexist with no conflict), and the app sends from addresses on your domain. Two addresses are used: `enquiries@handpanweddings.com` for the notification to you, and `craig@handpanweddings.com` for the confirmation to the couple. Both land in your Zoho inbox like any other message.
 
 ## What you need to provide
 
@@ -29,7 +29,7 @@ One thing left on Resend's side: verify **handpanweddings.com** by adding the DK
 
 ## Confirmation email to the couple
 
-As well as notifying you, the form sends the couple a short, warm confirmation email from notifications@handpanweddings.com — "Thanks, I've got your enquiry and I'll come back to you within a day or two." This goes live once Resend verification completes.
+As well as notifying you, the form sends the couple a short, warm confirmation email **from `craig@handpanweddings.com`** — "Thanks, I've got your enquiry and I'll come back to you within a day or two." They can reply directly to that address. This goes live once Resend verification completes.
 
 ## Technical notes
 
