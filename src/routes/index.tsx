@@ -249,9 +249,9 @@ function HomePage() {
               "Professional communication before the day",
               "Arrival and setup handled smoothly",
               "Collaborates with wedding planners, celebrants, and venues",
-              "Public liability insurance held (PLI)",
+              "Fully insured (PLI)",
               "Travel across London, Surrey, Sussex, Kent & Essex, and beyond",
-              "Acoustic — no power required for most ceremonies",
+              "Acoustic or amplified",
             ].map((t) => (
               <li key={t} className="flex gap-3 text-foreground/85">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-sage-deep flex-none" />
