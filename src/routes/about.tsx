@@ -53,7 +53,7 @@ function AboutPage() {
             traditional ceremony music.
           </p>
           <p>
-            Most of my work is in Kent, Canterbury, London, Sussex, and Surrey,
+            Most of my work is in London, Surrey, Sussex, Kent, and Essex,
             with further travel by arrangement. Whatever the venue — a barn, a
             country garden, a small registry office, or a wide-open field — the
             aim is the same: music that quietly belongs to the moment.

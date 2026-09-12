@@ -12,13 +12,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across Kent, London, Sussex, Surrey, and beyond.",
+          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.",
       },
       { property: "og:title", content: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
       {
         property: "og:description",
         content:
-          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across Kent, London, Sussex, Surrey, and beyond.",
+          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
           "@type": "MusicGroup",
           name: "Craig — Handpan Wedding Musician",
           genre: ["Handpan", "Acoustic", "Wedding"],
-          areaServed: ["Kent", "Canterbury", "London", "Sussex", "Surrey"],
+          areaServed: ["London", "Surrey", "Sussex", "Kent", "Essex"],
           description:
             "Live handpan music for weddings, ceremonies, drinks receptions and intimate celebrations across the UK.",
         }),
@@ -107,7 +107,7 @@ function HomePage() {
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm">
             <Stat label="LIVE PERFORMANCES SINCE" value="2021" />
-            <Stat label="Areas covered" value="Kent · London · Sussex · Surrey" />
+            <Stat label="Areas covered" value="London · Surrey · Sussex · Kent & Essex" />
           </div>
         </div>
       </section>
@@ -259,7 +259,7 @@ function HomePage() {
               "Arrival and setup handled smoothly",
               "Works with wedding planners, celebrants, and venues",
               "Public liability insurance held (PLI)",
-              "Travel across Kent, London, Sussex, Surrey & beyond",
+              "Travel across London, Surrey, Sussex, Kent & Essex, and beyond",
               "Acoustic — no power required for most ceremonies",
             ].map((t) => (
               <li key={t} className="flex gap-3 text-foreground/85">

@@ -66,7 +66,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across Kent, London, Sussex, Surrey, and beyond.",
+          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.",
       },
       { name: "author", content: "Craig Handpan" },
       { property: "og:type", content: "website" },

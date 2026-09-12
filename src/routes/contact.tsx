@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Check availability for your wedding date. Live handpan music for weddings, ceremonies, and elopements across Kent, London, Sussex, and Surrey.",
+          "Check availability for your wedding date. Live handpan music for weddings, ceremonies, and elopements across London, Surrey, Sussex, Kent & Essex.",
       },
       { property: "og:title", content: "Check My Wedding Date | Handpan Musician Enquiry" },
       { property: "og:description", content: "Send a wedding enquiry and check availability for your date." },
