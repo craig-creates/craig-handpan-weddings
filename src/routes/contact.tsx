@@ -168,7 +168,7 @@ function ContactPage() {
                 <TextAreaField
                   label="Any special requests"
                   name="requests"
-                  placeholder="The setting, the light, the moments that matter, the feeling you'd like guests to carry home…"
+                  placeholder="The setting, aesthetics, atmosphere and the feeling you'd like guests to carry home…"
                   className="sm:col-span-2"
                 />
                 <Field label="How did you find me?" name="referral" className="sm:col-span-2" />
