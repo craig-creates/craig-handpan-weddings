@@ -2,7 +2,7 @@
 
 Right now the form only shows a thank-you message — nothing is sent or saved. This plan makes each enquiry do two things: email you straight away, and create a contact plus a deal in your HubSpot pipeline.
 
-It will be built so the whole site stays portable: if you export to GitHub and host on Cloudflare, it keeps working, because it only uses your own Resend and HubSpot keys — nothing tied to Lovable.
+It will be built so the whole site stays portable: if you export to GitHub and host on Cloudflare, it keeps working, because it only uses your own API keys — nothing tied to Lovable.
 
 ## What happens when someone clicks "Check my wedding date"
 
@@ -13,21 +13,23 @@ It will be built so the whole site stays portable: if you export to GitHub and h
 
 The email is sent first, so even if HubSpot ever rejects something, the enquiry still reaches your inbox.
 
+## Your email setup (Zoho Mail + handpanweddings.com)
+
+You've bought **handpanweddings.com** and are connecting Zoho Mail for your inbox. Enquiry notifications will arrive at your Zoho address (e.g. craig@handpanweddings.com) — that's where you'll read them.
+
+**Important — why we still need a sending service (Resend):** Cloudflare Workers can't open raw SMTP connections, so the app can't send email via Zoho's SMTP directly. It needs an HTTP-based email API. **Resend** is the simplest: you paste an API key, verify the domain with a few DNS records (DKIM/SPF — separate from Zoho's MX records, so they coexist with no conflict), and the app sends from `notifications@handpanweddings.com`. The email lands in your Zoho inbox like any other message.
+
 ## What you need to provide
 
-- **Resend account + API key** (free tier is plenty). Resend is the email service; it's a plain API key, so it moves with the site anywhere.
+- **Resend account + API key** (free tier is plenty). Verify handpanweddings.com in Resend by adding the DKIM/SPF records it shows you — these sit alongside the Zoho MX records without conflict.
 - **HubSpot private app token** with contact and deal write permissions — you create this in HubSpot as an admin.
-- **The email address** enquiry notifications should go to (e.g. your personal/Gmail address).
+- **Your Zoho Mail inbox address** (e.g. craig@handpanweddings.com) — where enquiry notifications are sent.
 
 Both keys get stored securely, never in the code.
 
-## About the sender domain
-
-You've bought **handpanweddings.com**. We'll verify it in Resend (a few DNS records — Resend shows you exactly what to add), then send all email from `notifications@handpanweddings.com` (or whatever prefix you prefer). Until verification completes, Resend can only send from its test address to your own account email — fine for testing, but real sends need the verified domain. No code changes when verification goes live; it just starts working.
-
 ## Confirmation email to the couple
 
-As well as notifying you, the form sends the couple a short, warm confirmation email from your domain — "Thanks, I've got your enquiry and I'll come back to you within a day or two." This needs the verified domain, so it goes live once Resend verification completes.
+As well as notifying you, the form sends the couple a short, warm confirmation email from notifications@handpanweddings.com — "Thanks, I've got your enquiry and I'll come back to you within a day or two." This goes live once Resend verification completes.
 
 ## Technical notes
 
