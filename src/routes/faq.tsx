@@ -1,20 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "./weddings";
+import { url, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ | Wedding Handpan Musician" },
+      { title: "FAQ | Handpan Weddings" },
       {
         name: "description",
         content:
           "Frequently asked questions about booking live handpan music for weddings, ceremonies, and outdoor celebrations.",
       },
-      { property: "og:title", content: "FAQ | Wedding Handpan Musician" },
+      { property: "og:title", content: "FAQ | Handpan Weddings" },
       { property: "og:description", content: "Common questions about booking live handpan wedding music." },
-      { property: "og:url", content: "/faq" },
+      { property: "og:url", content: url("/faq") },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/faq" }],
+    links: [{ rel: "canonical", href: url("/faq") }],
     scripts: [
       {
         type: "application/ld+json",

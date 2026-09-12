@@ -1,21 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "./weddings";
 import { useState, type FormEvent } from "react";
+import { url, SITE_URL } from "@/lib/site";
+import { trackLead } from "@/lib/analytics";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Check My Wedding Date | Handpan Musician Enquiry" },
+      { title: "Check My Wedding Date | Handpan Weddings" },
       {
         name: "description",
         content:
-          "Check availability for your wedding date. Live handpan music for weddings, ceremonies, and elopements across London, Surrey, Sussex, Kent & Essex.",
+          "Check availability for your wedding date. Live handpan music for drinks receptions, ceremonies, and elopements across London, Surrey, Sussex, Kent and Essex.",
       },
-      { property: "og:title", content: "Check My Wedding Date | Handpan Musician Enquiry" },
+      { property: "og:title", content: "Check My Wedding Date | Handpan Weddings" },
       { property: "og:description", content: "Send a wedding enquiry and check availability for your date." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: url("/contact") },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: url("/contact") }],
   }),
   component: ContactPage,
 });
@@ -71,6 +75,7 @@ function ContactPage() {
         return;
       }
       setSubmitted(true);
+      trackLead();
     } catch {
       setError(
         "Something went wrong sending your enquiry. Please email craig@handpanweddings.com directly.",

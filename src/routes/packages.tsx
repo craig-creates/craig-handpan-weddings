@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "./weddings";
+import { url, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/packages")({
   head: () => ({
@@ -16,9 +17,11 @@ export const Route = createFileRoute("/packages")({
         content:
           "Solo, duo, and trio handpan music for wedding drinks receptions across the UK.",
       },
-      { property: "og:url", content: "/packages" },
+      { property: "og:url", content: url("/packages") },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/packages" }],
+    links: [{ rel: "canonical", href: url("/packages") }],
   }),
   component: PackagesPage,
 });

@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
+import { ConsentBanner } from "../components/ConsentBanner";
+import { BRAND_NAME, SITE_URL } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -62,31 +64,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
+      { title: "Handpan Weddings | Live Handpan Music for Drinks Receptions" },
       {
         name: "description",
         content:
-          "Live handpan music for weddings, ceremonies, drinks receptions, elopements, and intimate celebrations across London, Surrey, Sussex, Kent & Essex, and beyond.",
+          "Live handpan music for wedding drinks receptions across London, Surrey, Sussex, Kent and Essex. Solo, duo with double bass, or trio with clarinet.",
       },
-      { name: "author", content: "Craig Handpan" },
+      { name: "author", content: BRAND_NAME },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Craig Handpan — Wedding Musician" },
+      { property: "og:site_name", content: BRAND_NAME },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
-      { name: "twitter:title", content: "Handpan Wedding Musician in Kent | Live Ceremony & Reception Music" },
-      { name: "description", content: "Soulful Wedding Sounds offers live handpan music for elegant and intimate wedding celebrations." },
-      { property: "og:description", content: "Soulful Wedding Sounds offers live handpan music for elegant and intimate wedding celebrations." },
-      { name: "twitter:description", content: "Soulful Wedding Sounds offers live handpan music for elegant and intimate wedding celebrations." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ca7bcbe5-76b1-4baa-ba31-b2f3979d314c/id-preview-5f823ebf--a08e8228-5d14-439d-b3de-53d80cb0c677.lovable.app-1782682491885.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ca7bcbe5-76b1-4baa-ba31-b2f3979d314c/id-preview-5f823ebf--a08e8228-5d14-439d-b3de-53d80cb0c677.lovable.app-1782682491885.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MusicGroup",
+          name: BRAND_NAME,
+          genre: ["Handpan", "Acoustic", "Wedding"],
+          areaServed: ["London", "Surrey", "Sussex", "Kent", "Essex"],
+          url: SITE_URL,
+          description:
+            "Live handpan music for wedding drinks receptions across London, Surrey, Sussex, Kent and Essex.",
+        }),
       },
     ],
   }),
@@ -115,13 +126,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col pb-36 sm:pb-24">
         <SiteHeader />
         <main className="flex-1">
           <Outlet />
         </main>
         <SiteFooter />
       </div>
+      <ConsentBanner />
     </QueryClientProvider>
   );
 }

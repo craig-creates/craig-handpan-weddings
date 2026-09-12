@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="mt-32 border-t border-border/60 bg-muted/40">
       <div className="container-prose py-16 grid gap-12 md:grid-cols-3">
         <div>
-          <div className="font-serif text-2xl">Craig · Handpan</div>
+          <div className="font-serif text-2xl">Handpan Weddings</div>
           <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
             Live handpan music for soulful weddings, ceremonies, and intimate
             celebrations across London, Surrey, Sussex, Kent, Essex, and beyond.
@@ -45,8 +45,11 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-border/60">
         <div className="container-prose py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} Craig Handpan. All rights reserved.</span>
-          <span>Handpan wedding musician · United Kingdom</span>
+          <span>© {new Date().getFullYear()} Handpan Weddings. All rights reserved.</span>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <span>Handpan wedding musician · United Kingdom</span>
+          </div>
         </div>
       </div>
     </footer>
