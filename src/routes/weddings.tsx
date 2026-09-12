@@ -28,7 +28,7 @@ function WeddingsPage() {
       <PageHeader
         eyebrow="Weddings"
         title="Live handpan, woven through your wedding day."
-        intro="A wedding has a natural shape — arrival, ceremony, the first drink together, the quiet moments between. The handpan moves softly through all of it."
+        intro="A wedding has a natural shape — arrival, ceremony, the first drink together, the quiet moments between. The handpan flows softly through every step."
       />
 
       <section className="container-prose pb-24">
