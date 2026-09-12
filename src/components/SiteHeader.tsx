@@ -17,9 +17,9 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="container-prose flex h-20 items-center justify-between">
         <Link to="/" className="flex flex-col leading-none" onClick={() => setOpen(false)}>
-          <span className="font-serif text-2xl tracking-tight text-foreground">Craig</span>
+          <span className="font-serif text-2xl tracking-tight text-foreground">Handpan Weddings</span>
           <span className="text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground mt-1">
-            Handpan · Weddings
+            Live Wedding Music
           </span>
         </Link>
 

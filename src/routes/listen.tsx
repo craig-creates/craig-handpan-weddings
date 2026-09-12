@@ -1,24 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "./weddings";
 import detailImg from "@/assets/handpan-detail.jpg";
-import ceremonyImg from "@/assets/ceremony.jpg";
 import receptionImg from "@/assets/reception.jpg";
-import elopementImg from "@/assets/elopement.jpg";
+import { url, SITE_URL, INSTAGRAM_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/listen")({
   head: () => ({
     meta: [
-      { title: "Listen & Watch | Handpan Wedding Music" },
+      { title: "Listen & Watch | Handpan Weddings" },
       {
         name: "description",
         content:
-          "Listen to live handpan music for weddings — video performances and audio clips from ceremonies, drinks receptions, and intimate celebrations.",
+          "Hear the handpan — a soft, floating sound ideal for wedding drinks receptions. Recordings coming soon.",
       },
-      { property: "og:title", content: "Listen & Watch | Handpan Wedding Music" },
+      { property: "og:title", content: "Listen & Watch | Handpan Weddings" },
       { property: "og:description", content: "Hear the handpan before you book." },
-      { property: "og:url", content: "/listen" },
+      { property: "og:url", content: url("/listen") },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/listen" }],
+    links: [{ rel: "canonical", href: url("/listen") }],
   }),
   component: ListenPage,
 });
@@ -29,112 +30,89 @@ function ListenPage() {
       <PageHeader
         eyebrow="Listen & Watch"
         title="Hear the handpan."
-        intro="Most couples decide the moment they hear it. A few short pieces from real weddings and recording sessions."
+        intro="Most couples decide the moment they hear it. A few short recordings are on the way — in the meantime, here's what to expect."
       />
 
-      {/* Featured video */}
+      {/* Coming soon */}
       <section className="container-prose pb-20">
-        <div className="rounded-3xl overflow-hidden border border-border bg-muted aspect-video grid place-items-center relative">
+        <div className="rounded-3xl overflow-hidden border border-border bg-muted aspect-video relative grid place-items-center">
           <img
             src={detailImg}
-            alt="Featured handpan performance"
-            className="absolute inset-0 h-full w-full object-cover opacity-60"
+            alt="Handpan performance at a wedding"
+            className="absolute inset-0 h-full w-full object-cover opacity-50"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-earth/30" />
-          <button
-            type="button"
-            className="relative z-10 inline-flex items-center gap-3 rounded-full bg-cream/95 text-earth px-6 py-3 font-medium hover:bg-cream"
-            aria-label="Play featured video"
-          >
-            <PlayIcon />
-            Featured performance
-          </button>
-        </div>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Featured video placeholder — replace with a hosted YouTube or Vimeo embed.
-        </p>
-      </section>
-
-      {/* Short clips */}
-      <section className="container-prose pb-24">
-        <h2 className="font-serif text-3xl">Short clips</h2>
-        <div className="mt-8 grid sm:grid-cols-3 gap-5">
-          {[
-            { title: "Aisle walk", image: ceremonyImg },
-            { title: "Drinks reception", image: receptionImg },
-            { title: "Sunset elopement", image: elopementImg },
-          ].map((c) => (
-            <button
-              key={c.title}
-              type="button"
-              className="group relative rounded-2xl overflow-hidden aspect-[4/5] text-left"
-            >
-              <img
-                src={c.image}
-                alt={c.title}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-earth/80 via-earth/20 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-between p-5 text-cream">
-                <PlayIcon />
-                <span className="font-serif text-xl">{c.title}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Audio */}
-      <section className="bg-muted/50 py-24">
-        <div className="container-prose">
-          <h2 className="font-serif text-3xl">Audio recordings</h2>
-          <div className="mt-8 grid md:grid-cols-2 gap-5">
-            {[
-              { title: "Ceremony — slow & melodic", length: "3:42" },
-              { title: "Drinks reception — light & flowing", length: "4:15" },
-            ].map((a) => (
-              <div
-                key={a.title}
-                className="rounded-2xl border border-border/70 bg-card p-6 flex items-center gap-5"
-              >
-                <button
-                  type="button"
-                  aria-label={`Play ${a.title}`}
-                  className="h-14 w-14 rounded-full bg-sage-deep text-cream grid place-items-center hover:bg-earth transition-colors"
-                >
-                  <PlayIcon />
-                </button>
-                <div className="flex-1">
-                  <div className="font-serif text-lg">{a.title}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{a.length}</div>
-                  <div className="mt-3 h-1 w-full rounded-full bg-muted overflow-hidden">
-                    <div className="h-full w-1/4 bg-sage-deep/60 rounded-full" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Instagram */}
-          <div className="mt-14 rounded-2xl border border-dashed border-border p-10 text-center bg-card/60">
-            <p className="eyebrow">Instagram</p>
-            <h3 className="mt-3 font-serif text-2xl">More moments on Instagram</h3>
-            <p className="mt-3 text-sm text-muted-foreground max-w-md mx-auto">
-              An Instagram feed embed can be added here once a handle is connected.
+          <div className="relative z-10 text-center px-6">
+            <p className="text-[0.7rem] tracking-[0.3em] uppercase text-cream/85">
+              Coming soon
+            </p>
+            <h2 className="mt-3 heading-display text-3xl md:text-4xl text-cream">
+              Recordings are on the way
+            </h2>
+            <p className="mt-4 text-cream/80 leading-relaxed max-w-md mx-auto">
+              Short clips from real weddings and recording sessions will appear
+              here. In the meantime, follow along on Instagram or send an
+              enquiry to hear more.
             </p>
           </div>
         </div>
       </section>
-    </>
-  );
-}
 
-function PlayIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M8 5v14l11-7z" />
-    </svg>
+      {/* Instagram + CTA */}
+      <section className="bg-muted/50 py-24">
+        <div className="container-prose max-w-2xl text-center">
+          <p className="eyebrow">Instagram</p>
+          <h2 className="mt-4 heading-display text-3xl md:text-4xl">
+            Follow the journey on Instagram
+          </h2>
+          <p className="mt-5 text-foreground/75 leading-relaxed">
+            New performances, behind-the-scenes moments, and real wedding clips
+            are shared regularly.
+          </p>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-8"
+          >
+            Follow on Instagram
+          </a>
+        </div>
+      </section>
+
+      {/* Enquiry CTA */}
+      <section className="container-prose py-24">
+        <div className="rounded-3xl overflow-hidden relative isolate">
+          <img
+            src={receptionImg}
+            alt="Wedding drinks reception"
+            width={1280}
+            height={960}
+            loading="lazy"
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 -z-10 bg-earth/55" />
+          <div className="px-8 py-24 md:px-16 md:py-32 text-cream max-w-2xl">
+            <p className="text-[0.7rem] tracking-[0.3em] uppercase text-cream/85">
+              Enquire
+            </p>
+            <h2 className="mt-4 heading-display text-4xl md:text-5xl text-cream">
+              Hear it in person.
+            </h2>
+            <p className="mt-5 text-cream/85 leading-relaxed">
+              The best way to know if handpan is right for your day is to talk
+              it through. Share your date and I'll come back with ideas.
+            </p>
+            <Link
+              to="/contact"
+              className="btn-outline mt-8 border-cream/40 text-cream hover:bg-cream/10 hover:border-cream/60"
+            >
+              Check Availability
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
