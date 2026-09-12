@@ -100,10 +100,10 @@ function HomePage() {
             An intimate, peaceful and truly unforgettable sound.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-foreground/80">
-            The handpan has a soft, melodic, almost floating sound. It creates
-            atmosphere without overpowering conversation — making it ideal for
-            emotional ceremonies, relaxed drinks receptions, outdoor celebrations,
-            and the quiet, important moments of the day.
+            The handpan's soft, floating soundscape creates atmosphere without
+            overpowering conversation — making it ideal for emotional ceremonies,
+            relaxed drinks receptions, outdoor celebrations, and all those intimate
+            moments throughout the day.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm">
             <Stat label="LIVE PERFORMANCES SINCE" value="2021" />
