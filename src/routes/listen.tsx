@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { PageHeader } from "./weddings";
 import detailImg from "@/assets/handpan-detail.jpg";
 import receptionImg from "@/assets/reception.jpg";
 import { url, SITE_URL, INSTAGRAM_URL } from "@/lib/site";
+import { INSTAGRAM_POSTS } from "@/lib/instagram-posts";
 
 export const Route = createFileRoute("/listen")({
   head: () => ({
@@ -11,7 +13,7 @@ export const Route = createFileRoute("/listen")({
       {
         name: "description",
         content:
-          "Hear the handpan — a soft, floating sound ideal for wedding drinks receptions. Recordings coming soon.",
+          "Hear the handpan — a soft, floating sound ideal for wedding drinks receptions. See performances on Instagram.",
       },
       { property: "og:title", content: "Listen & Watch | Handpan Weddings" },
       { property: "og:description", content: "Hear the handpan before you book." },
@@ -24,6 +26,71 @@ export const Route = createFileRoute("/listen")({
   component: ListenPage,
 });
 
+function InstagramFeed() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Load Instagram embed script once.
+    const existing = document.querySelector(
+      'script[src*="instagram.com/embed.js"]',
+    );
+    if (!existing) {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "//www.instagram.com/embed.js";
+      script.onload = () => {
+        window.instgrm?.Embeds?.process();
+      };
+      document.body.appendChild(script);
+    } else {
+      // Script already loaded — reprocess embeds.
+      window.instgrm?.Embeds?.process();
+    }
+  }, []);
+
+  if (INSTAGRAM_POSTS.length === 0) {
+    return null;
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12"
+    >
+      {INSTAGRAM_POSTS.map((postUrl) => (
+        <blockquote
+          key={postUrl}
+          className="instagram-media rounded-2xl overflow-hidden"
+          data-instgrm-permalink={postUrl}
+          data-instgrm-version="14"
+          style={{
+            background: "#FFF",
+            border: 0,
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          <div style={{ padding: "16px" }}>
+            <a
+              href={postUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#c9c8c8",
+                fontFamily: "Arial,sans-serif",
+                fontSize: "14px",
+                textDecoration: "none",
+              }}
+            >
+              View on Instagram
+            </a>
+          </div>
+        </blockquote>
+      ))}
+    </div>
+  );
+}
+
 function ListenPage() {
   return (
     <>
@@ -33,30 +100,53 @@ function ListenPage() {
         intro="Most couples decide the moment they hear it. A few short recordings are on the way — in the meantime, here's what to expect."
       />
 
-      {/* Coming soon */}
+      {/* Instagram feed / coming soon */}
       <section className="container-prose pb-20">
-        <div className="rounded-3xl overflow-hidden border border-border bg-muted aspect-video relative grid place-items-center">
-          <img
-            src={detailImg}
-            alt="Handpan performance at a wedding"
-            className="absolute inset-0 h-full w-full object-cover opacity-50"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-earth/30" />
-          <div className="relative z-10 text-center px-6">
-            <p className="text-[0.7rem] tracking-[0.3em] uppercase text-cream/85">
-              Coming soon
-            </p>
-            <h2 className="mt-3 heading-display text-3xl md:text-4xl text-cream">
-              Recordings are on the way
+        {INSTAGRAM_POSTS.length > 0 ? (
+          <div className="text-center">
+            <p className="eyebrow">Instagram</p>
+            <h2 className="mt-4 heading-display text-3xl md:text-4xl">
+              Latest from Instagram
             </h2>
-            <p className="mt-4 text-cream/80 leading-relaxed max-w-md mx-auto">
-              Short clips from real weddings and recording sessions will appear
-              here. In the meantime, follow along on Instagram or send an
-              enquiry to hear more.
+            <p className="mt-5 text-foreground/75 leading-relaxed">
+              Performances, behind-the-scenes moments, and real wedding clips
+              from{" "}
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-foreground"
+              >
+                @kohpancraig
+              </a>
+              .
             </p>
+            <InstagramFeed />
           </div>
-        </div>
+        ) : (
+          <div className="rounded-3xl overflow-hidden border border-border bg-muted aspect-video relative grid place-items-center">
+            <img
+              src={detailImg}
+              alt="Handpan performance at a wedding"
+              className="absolute inset-0 h-full w-full object-cover opacity-50"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-earth/30" />
+            <div className="relative z-10 text-center px-6">
+              <p className="text-[0.7rem] tracking-[0.3em] uppercase text-cream/85">
+                Coming soon
+              </p>
+              <h2 className="mt-3 heading-display text-3xl md:text-4xl text-cream">
+                Recordings are on the way
+              </h2>
+              <p className="mt-4 text-cream/80 leading-relaxed max-w-md mx-auto">
+                Short clips from real weddings and recording sessions will
+                appear here. In the meantime, follow along on Instagram or
+                send an enquiry to hear more.
+              </p>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Instagram + CTA */}
@@ -67,8 +157,8 @@ function ListenPage() {
             Follow the journey on Instagram
           </h2>
           <p className="mt-5 text-foreground/75 leading-relaxed">
-            New performances, behind-the-scenes moments, and real wedding clips
-            are shared regularly.
+            New performances, behind-the-scenes moments, and real wedding
+            clips are shared regularly.
           </p>
           <a
             href={INSTAGRAM_URL}
@@ -76,7 +166,7 @@ function ListenPage() {
             rel="noopener noreferrer"
             className="btn-primary mt-8"
           >
-            Follow on Instagram
+            Follow @kohpancraig
           </a>
         </div>
       </section>
