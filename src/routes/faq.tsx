@@ -60,7 +60,7 @@ const faqs = [
   },
   {
     q: "How far do you travel?",
-    a: "London, Surrey, Sussex, Kent & Essex, and surrounding areas. Further travel may be available by arrangement, including destination weddings.",
+    a: "London, Surrey, Sussex, Kent, Essex, and surrounding areas. Further travel may be available by arrangement, including destination weddings.",
   },
   {
     q: "How do bookings work?",
