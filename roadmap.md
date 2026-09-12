@@ -11,13 +11,10 @@
 - [x] Instagram native embed infrastructure on Listen page (add post URLs to src/lib/instagram-posts.ts)
 
 ## Pending on user
-- [ ] Resend domain verification (DKIM added to Namecheap DNS — waiting for Resend to verify at resend.com/domains)
 - [ ] Meta Pixel ID (VITE_META_PIXEL_ID) — needed when Meta ads start
 - [ ] Add Instagram post/reel URLs to src/lib/instagram-posts.ts to populate the feed
-
-## Blocked
-- [ ] End-to-end enquiry test — blocked until Resend verifies handpanweddings.com domain
-
-## After Resend verification
-- [ ] Run labelled test enquiry → verify email to craig@handpanweddings.com + couple confirmation + HubSpot contact/deal creation
 - [ ] Delete test contact/deal in HubSpot after confirming
+
+## Done
+- [x] Resend domain verified on handpanweddings.com
+- [x] End-to-end enquiry test passed — email delivered via Resend, HubSpot contact/deal attempted
