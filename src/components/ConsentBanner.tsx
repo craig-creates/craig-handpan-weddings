@@ -13,6 +13,8 @@ export function ConsentBanner() {
   if (choice !== null) return null;
 
   return (
+    <>
+    <div className="h-36 sm:h-24" aria-hidden="true" />
     <div className="fixed bottom-0 inset-x-0 z-50 border-t border-border bg-background/95 backdrop-blur-md shadow-lg">
       <div className="container-prose py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-foreground/80 leading-relaxed max-w-2xl">
