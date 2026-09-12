@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeddingsRouteImport } from './routes/weddings'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ListenRouteImport } from './routes/listen'
@@ -29,6 +30,11 @@ const WeddingsRoute = WeddingsRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesRoute = PackagesRouteImport.update({
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/listen': typeof ListenRoute
   '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/weddings': typeof WeddingsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/listen': typeof ListenRoute
   '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/weddings': typeof WeddingsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/listen': typeof ListenRoute
   '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/weddings': typeof WeddingsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/listen'
     | '/mcp'
     | '/packages'
+    | '/privacy'
     | '/sitemap.xml'
     | '/weddings'
     | '/.well-known/oauth-protected-resource'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/listen'
     | '/mcp'
     | '/packages'
+    | '/privacy'
     | '/sitemap.xml'
     | '/weddings'
     | '/.well-known/oauth-protected-resource'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/listen'
     | '/mcp'
     | '/packages'
+    | '/privacy'
     | '/sitemap.xml'
     | '/weddings'
     | '/.well-known/oauth-protected-resource'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   ListenRoute: typeof ListenRoute
   McpRoute: typeof McpRoute
   PackagesRoute: typeof PackagesRoute
+  PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WeddingsRoute: typeof WeddingsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -188,6 +201,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages': {
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   ListenRoute: ListenRoute,
   McpRoute: McpRoute,
   PackagesRoute: PackagesRoute,
+  PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WeddingsRoute: WeddingsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:

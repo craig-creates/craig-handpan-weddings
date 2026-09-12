@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://craig-handpan-weddings.lovable.app/sitemap.xml
