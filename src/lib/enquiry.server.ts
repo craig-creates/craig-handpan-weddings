@@ -244,6 +244,60 @@ async function upsertContact(token: string, data: EnquiryData): Promise<string> 
   return created.id;
 }
 
+// Custom deal properties for the wedding specifics — filterable/reportable in
+// HubSpot rather than buried in the note. Created automatically on first use.
+const CUSTOM_DEAL_PROPERTIES: Array<{
+  name: string;
+  label: string;
+  type: string;
+  fieldType: string;
+}> = [
+  { name: "wedding_date", label: "Wedding date", type: "date", fieldType: "date" },
+  { name: "wedding_venue", label: "Wedding venue", type: "string", fieldType: "text" },
+  { name: "part_of_day", label: "Part of the day", type: "string", fieldType: "text" },
+  { name: "package_interest", label: "Package interest", type: "string", fieldType: "text" },
+  { name: "guest_count", label: "Guest count", type: "number", fieldType: "number" },
+  { name: "wedding_setting", label: "Wedding setting", type: "string", fieldType: "text" },
+  { name: "special_requests", label: "Special requests", type: "string", fieldType: "textarea" },
+  { name: "referral_source", label: "Referral source", type: "string", fieldType: "text" },
+];
+
+// Idempotent: lists existing deal properties, creates any that are missing,
+// and returns the set of property names safe to write on the deal.
+async function ensureDealProperties(token: string): Promise<Set<string>> {
+  try {
+    const res = await hubspot(token, "/crm/v3/properties/deals", { method: "GET" }, "list deal properties");
+    const body = (await res.json()) as { results?: Array<{ name: string }> };
+    const existing = new Set((body.results ?? []).map((p) => p.name));
+    const ensured = new Set<string>();
+    for (const def of CUSTOM_DEAL_PROPERTIES) {
+      if (existing.has(def.name)) {
+        ensured.add(def.name);
+        continue;
+      }
+      try {
+        await hubspot(
+          token,
+          "/crm/v3/properties/deals",
+          { method: "POST", body: JSON.stringify({ ...def, groupName: "dealinformation" }) },
+          `create deal property ${def.name}`,
+        );
+        ensured.add(def.name);
+      } catch (err) {
+        console.error(`HubSpot could not create deal property "${def.name}":`, err);
+      }
+    }
+    return ensured;
+  } catch (err) {
+    // Token lacks schema permission — enquiry details stay safe in the note.
+    console.error(
+      "HubSpot deal properties unavailable — create them manually in Settings → Properties. Details will be kept in the deal note.",
+      err,
+    );
+    return new Set();
+  }
+}
+
 function noteBody(data: EnquiryData): string {
   const lines = [
     `Wedding enquiry via handpanweddings.com`,
@@ -269,6 +323,7 @@ export async function createHubspotRecords(data: EnquiryData): Promise<void> {
   if (!token) throw new Error("HUBSPOT_PRIVATE_APP_TOKEN is not configured");
 
   const contactId = await upsertContact(token, data);
+  const ensuredProps = await ensureDealProperties(token);
 
   const dealProperties: Record<string, string> = {
     dealname: `${data.names} — wedding${data.date ? ` ${data.date}` : ""}`,
@@ -280,6 +335,23 @@ export async function createHubspotRecords(data: EnquiryData): Promise<void> {
   if (data.date) {
     // Noon UTC avoids timezone shifting the calendar date.
     dealProperties.closedate = String(new Date(`${data.date}T12:00:00Z`).getTime());
+  }
+
+  // Wedding specifics into their own deal fields — only ones that exist.
+  const customValues: Record<string, string | number | undefined> = {
+    wedding_date: data.date, // date properties accept YYYY-MM-DD
+    wedding_venue: data.venue,
+    part_of_day: data.part,
+    package_interest: data.packageInterest,
+    guest_count: data.guests,
+    wedding_setting: data.setting,
+    special_requests: data.requests,
+    referral_source: data.referral,
+  };
+  for (const [name, value] of Object.entries(customValues)) {
+    if (ensuredProps.has(name) && value !== undefined && value !== "") {
+      dealProperties[name] = String(value);
+    }
   }
 
   const dealRes = await hubspot(
