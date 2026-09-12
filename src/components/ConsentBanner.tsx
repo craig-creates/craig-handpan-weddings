@@ -45,5 +45,6 @@ export function ConsentBanner() {
         </div>
       </div>
     </div>
+    </>
   );
 }
