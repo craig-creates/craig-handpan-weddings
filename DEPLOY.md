@@ -20,16 +20,22 @@ bun run build
 The build output goes to `dist/` (or `.output/` depending on the adapter). The
 Vite config already targets the Cloudflare Workers adapter.
 
-## Environment variables / secrets
+## Cloudflare runtime variables / secrets
 
-The enquiry form and email delivery need three secrets. Recreate them in
-Cloudflare (Workers → Settings → Variables):
+The enquiry form and email delivery need three runtime bindings in the
+Cloudflare **Production** environment (Workers → Settings → Variables and Secrets).
+After adding or changing them, deploy again so the active Worker receives them:
 
 | Name | Purpose | Where to get it |
 |------|---------|-----------------|
 | `RESEND_API_KEY` | Sends enquiry notification + confirmation emails | Resend dashboard (starts `re_`) |
 | `HUBSPOT_PRIVATE_APP_TOKEN` | Creates contact + deal in HubSpot | HubSpot Private App (starts `pat-`) |
 | `ENQUIRY_NOTIFY_EMAIL` | Inbox that receives enquiry notifications | `craig@handpanweddings.com` |
+
+Use an encrypted secret for the Resend and HubSpot credentials. A normal text
+variable is suitable for `ENQUIRY_NOTIFY_EMAIL`. The app reads these values from
+Cloudflare's Worker bindings, with `process.env` retained for local development
+and other compatible hosts.
 
 Optional (for Meta ads analytics):
 
