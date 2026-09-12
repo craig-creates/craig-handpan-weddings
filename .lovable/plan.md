@@ -17,17 +17,17 @@ The email is sent first, so even if HubSpot ever rejects something, the enquiry 
 
 - **Resend account + API key** (free tier is plenty). Resend is the email service; it's a plain API key, so it moves with the site anywhere.
 - **HubSpot private app token** with contact and deal write permissions — you create this in HubSpot as an admin.
-- **The email address** enquiries should go to.
+- **The email address** enquiry notifications should go to (e.g. your personal/Gmail address).
 
 Both keys get stored securely, never in the code.
 
 ## About the sender domain
 
-You don't own a domain yet. Until you do, Resend can only send from its test address, and it will only deliver to the email address on your Resend account — fine for testing and fine as your own notification inbox, but not for emailing couples. Once you buy a domain and verify it in Resend, we change one line and it sends from your brand. I'd suggest getting the domain anyway, since the site will eventually want one.
+You've bought **handpanweddings.com**. We'll verify it in Resend (a few DNS records — Resend shows you exactly what to add), then send all email from `notifications@handpanweddings.com` (or whatever prefix you prefer). Until verification completes, Resend can only send from its test address to your own account email — fine for testing, but real sends need the verified domain. No code changes when verification goes live; it just starts working.
 
-## Optional (say if you want it)
+## Confirmation email to the couple
 
-A short confirmation email to the couple as well as the one to you. This needs the verified domain first.
+As well as notifying you, the form sends the couple a short, warm confirmation email from your domain — "Thanks, I've got your enquiry and I'll come back to you within a day or two." This needs the verified domain, so it goes live once Resend verification completes.
 
 ## Technical notes
 
