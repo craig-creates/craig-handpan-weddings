@@ -1,4 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds?: {
+        process: () => void;
+      };
+    };
+  }
+}
 import { useEffect, useRef } from "react";
 import { PageHeader } from "./weddings";
 import detailImg from "@/assets/handpan-detail.jpg";
