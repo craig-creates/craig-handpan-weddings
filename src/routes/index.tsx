@@ -225,7 +225,7 @@ function HomePage() {
           <PackageCard
             image={elopementImg}
             title="Handpan Trio — £1,450"
-            body="Handpan, double bass, and your choice of flute or violin — a bespoke ensemble feel for the reception."
+            body="Handpan, double bass, and clarinet — a bespoke ensemble feel for the reception."
           />
         </div>
 
