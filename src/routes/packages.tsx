@@ -51,9 +51,9 @@ const packages = [
   {
     name: "Handpan Trio",
     price: "£1,450",
-    body: "Handpan, double bass, and your choice of flute or violin — the most cinematic option, arranged like a bespoke ensemble.",
+    body: "Handpan, double bass, and clarinet — the most cinematic option, arranged like a bespoke ensemble.",
     bullets: [
-      "Handpan + double bass + flute or violin",
+      "Handpan + double bass + clarinet",
       "2 hours of live music",
       "A standout musical moment for guests",
       "Coordinated arrangements across the set",
