@@ -248,7 +248,7 @@ function HomePage() {
               "Suitable for indoor and outdoor ceremonies",
               "Professional communication before the day",
               "Arrival and setup handled smoothly",
-              "Works with wedding planners, celebrants, and venues",
+              "Collaborates with wedding planners, celebrants, and venues",
               "Public liability insurance held (PLI)",
               "Travel across London, Surrey, Sussex, Kent & Essex, and beyond",
               "Acoustic — no power required for most ceremonies",
