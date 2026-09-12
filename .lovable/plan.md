@@ -1,50 +1,69 @@
-# Site audit — readiness for launch, GitHub export, and Cloudflare hosting
+# Site audit — launch readiness, GitHub export, Cloudflare hosting
 
-I went through every page, the enquiry pipeline, the site-wide metadata, and the hosting setup. The site is in good shape structurally. Below is what still needs doing, grouped by how much it matters.
+I re-tested both connections just now. Here is where things actually stand.
 
-## 1. Blockers — the enquiry form cannot deliver yet
+## 1. Why the enquiry form still fails — found it
 
-- **Resend key is still being rejected.** Every test returns "API key is invalid". Until a working key is saved, a submitted enquiry returns an error to the couple. There are also two `RESEND_API_KEY` entries saved; the duplicate should be removed.
-- **handpanweddings.com is not verified in Resend.** Until it is, mail cannot be sent from craig@ or enquiries@ at your domain. There is already a safety net that falls back to Resend's shared test address, so nothing is lost in the meantime.
-- **The HubSpot private app is missing permissions.** Contact and deal creation fails until the contacts/deals read+write scopes are added to the app.
+**HubSpot is fine.** I tested it directly: contacts, deals, deal fields, and notes all return successfully. Your permissions are correct. Nothing more to do there.
 
-These three are account-side steps on your end; no code change fixes them.
+**Resend is the problem, and it isn't your key.** There are two `RESEND_API_KEY` entries saved on the project. One is yours; the other was created automatically by Lovable's Resend connector and is a different kind of key that only works inside Lovable. The automatic one is the one the site picks up, which is why every key you paste appears "invalid" — your keys were probably fine all along.
 
-## 2. Fixes I will make in the code
+Fix: disconnect the Lovable Resend connector so only your own key remains, then re-test. This also matters for the Cloudflare move, where only your own key exists.
 
-**Search and sharing**
-- Page addresses used for search engines and social previews are written as `/packages`, `/faq` etc. rather than full `https://handpanweddings.com/...` addresses. Search engines need the full form. I'll add a single site-address setting and use it on every page.
-- The sitemap lists pages without the domain in front, which makes it invalid for Google. Same fix.
-- `robots.txt` doesn't point to the sitemap. I'll add that line.
-- The social sharing image is currently a temporary Lovable screenshot link that will break. I'll point it at a proper image hosted on your own domain.
-- Site-wide title says "in Kent" while the site now serves London, Surrey, Sussex, Kent and Essex, and the business name appears three ways ("Craig · Handpan", "Craig Handpan", "Soulful Wedding Sounds"). I'll settle on one name and one consistent title across pages.
+Once that is done I will send a real test enquiry end to end and confirm the email arrives and the HubSpot contact and deal are created.
 
-**Listen & Watch page**
-- All the video and audio players are placeholders — the play buttons do nothing. This is the page most likely to convert a couple, so it needs your real media. I'll wire in whatever you have (YouTube/Vimeo links and audio files) and remove the Instagram placeholder box if there's no handle yet.
+## 2. Branding and copy
 
-**Small polish**
-- Add the site icon link so browsers and search results pick it up reliably.
-- Confirm the contact form's error and success states read well on mobile.
+- Standardise on **Handpan Weddings** everywhere: footer, page titles, social previews, structured data, and the agent-integration listing (currently a mix of "Craig · Handpan", "Craig Handpan", and "Soulful Wedding Sounds").
+- The site-wide title says "in Kent" but you now cover London, Surrey, Sussex, Kent and Essex. I'll rewrite the titles around drinks receptions and the full area.
 
-## 3. Cloudflare / GitHub export readiness
+## 3. Listen & Watch — no media yet
 
-The build already targets Cloudflare by default, so the export works — but a few things need to exist for it to run outside Lovable:
+The page currently shows fake players: a video box and two audio players whose buttons do nothing. That damages trust more than having no page at all.
 
-- **Environment variables must be recreated in Cloudflare.** `RESEND_API_KEY`, `HUBSPOT_PRIVATE_APP_TOKEN` and `ENQUIRY_NOTIFY_EMAIL` live in Lovable's secret store and are not part of the exported code. They must be added as secrets in the Cloudflare project.
-- **A deployment guide.** I'll add a short `DEPLOY.md` with the build command, output folder, required compatibility settings, the environment variables, and the DNS steps for pointing handpanweddings.com at Cloudflare.
-- Nothing in the enquiry code depends on Lovable — it calls Resend and HubSpot directly — so it keeps working after export. The agent integration (MCP) endpoint also works on Cloudflare.
-- One caveat: the form's spam throttle counts submissions per server instance, so on Cloudflare it's a deterrent rather than a hard limit. The hidden honeypot field does the real work. Fine for a wedding site.
+Plan: rebuild the page honestly — keep the atmosphere and imagery, replace the dead players with a short "recordings are on the way" note plus your Instagram link and a strong enquiry call to action. The moment you have video or audio, I drop it straight in and the players become real.
 
-## 4. Not doing unless you want it
+## 4. Search and sharing fixes
 
-- Visitor analytics (Cloudflare Web Analytics is free and privacy-friendly).
-- A cookie/privacy notice — not needed while there's no tracking, needed if analytics is added.
-- Reviews/testimonials section, which is usually the biggest conversion lift after audio.
+- Page addresses for search engines and social previews are written as `/packages`, `/faq` and so on instead of the full `https://handpanweddings.com/...`. I'll set one site address and apply it everywhere.
+- The sitemap has the same problem, which makes it invalid for Google.
+- `robots.txt` doesn't point to the sitemap.
+- The social sharing image is a temporary Lovable screenshot link that will break; I'll swap it for a real image on your domain.
+- Add the site icon link.
+
+## 5. Meta ads and analytics
+
+For Meta ads you need the Meta Pixel installed before you spend, so enquiries can be attributed and optimised toward. I'll add:
+
+- Meta Pixel with a page-view event, plus a "Lead" event when an enquiry is successfully sent.
+- Cloudflare Web Analytics for general visitor numbers (free, no cookies).
+- A privacy policy page naming what is collected and why — required once the Pixel is in.
+
+Because the Pixel uses cookies, UK and EU visitors legally need a choice. Two options, and I need your call (question below):
+
+- **Cookie banner shown only to UK/EU visitors** — tracking runs for everyone who accepts; most complete data.
+- **No banner** — the Pixel simply doesn't run for UK/EU visitors, which is most of your audience, so ad measurement would be badly limited.
+
+I recommend the banner. I'll also need your Meta Pixel ID from Meta Events Manager.
+
+## 6. Cloudflare / GitHub export
+
+The build already targets Cloudflare, so the export works. What is needed:
+
+- Recreate the secrets in Cloudflare: `RESEND_API_KEY`, `HUBSPOT_PRIVATE_APP_TOKEN`, `ENQUIRY_NOTIFY_EMAIL`. They live in Lovable's secret store and are not part of the exported code.
+- I'll add a short `DEPLOY.md` with the build command, output folder, compatibility settings, the secret list, and the DNS steps for pointing handpanweddings.com at Cloudflare.
+- The enquiry code calls Resend and HubSpot directly with no Lovable dependency, so it keeps working after export. The agent-integration endpoint works there too.
+- Note: the form's spam throttle counts per server instance, so on Cloudflare it's a deterrent rather than a hard cap. The hidden honeypot does the real work — fine for this site.
+
+## Technical detail
+
+- Add `src/lib/site.ts` exporting `SITE_URL` and brand constants; use in every route `head()`, the sitemap handler, and structured data.
+- Disconnect the Resend standard connector to remove the shadowing `RESEND_API_KEY`; keep direct `fetch` to `api.resend.com` for portability.
+- Pixel loaded from `__root.tsx` behind a consent check; `Lead` fired in `contact.tsx` on a successful `/api/enquiry` response.
+- New routes: `/privacy`. Consent choice stored in `localStorage`, region detected via `/cdn-cgi/trace`.
 
 ## What I need from you
 
-1. Links to your best performance videos (YouTube or Vimeo) and any audio files.
-2. Your Instagram handle, if you want that section kept.
-3. Which name should be the official one: "Craig Coppack", "Handpan Weddings", or "Soulful Wedding Sounds"?
-
-I can make all the code fixes in section 2 and 3 now and drop your media in as soon as you have it.
+1. Your Instagram handle (the one in your message came through as a project link, not a handle).
+2. Meta Pixel ID — or I build everything else and add it later.
+3. Cookie banner: yes (recommended) or no.
