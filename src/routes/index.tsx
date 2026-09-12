@@ -66,7 +66,7 @@ function HomePage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-cream/90 leading-relaxed">
             Live handpan ambience for drinks receptions — solo or with double
-            bass, flutes and violins. Also available for ceremonies,
+            bass and clarinet. Also available for ceremonies,
             elopements, and intimate celebrations across Kent, London, Sussex,
             Surrey, and beyond.
           </p>
@@ -137,8 +137,8 @@ function HomePage() {
                 body: "A warmer, fuller sound for larger receptions and grand spaces, while staying acoustic-forward.",
               },
               {
-                title: "Trio — Flute or Violin",
-                body: "The most cinematic option — handpan, double bass, and your choice of flute or violin.",
+                title: "Trio — with Clarinet",
+                body: "The most cinematic option — handpan, double bass, and clarinet.",
               },
               {
                 title: "Ceremony (add-on)",
@@ -205,7 +205,7 @@ function HomePage() {
           </h2>
           <p className="mt-5 text-foreground/75 leading-relaxed">
             Two hours of live music as your guests gather after the ceremony —
-            start with solo handpan, or add double bass and flute or violin for
+            start with solo handpan, or add double bass and clarinet for
             a fuller, more cinematic sound.
           </p>
         </div>
@@ -225,7 +225,7 @@ function HomePage() {
           <PackageCard
             image={elopementImg}
             title="Handpan Trio — £1,450"
-            body="Handpan, double bass, and your choice of flute or violin — a bespoke ensemble feel for the reception."
+            body="Handpan, double bass, and clarinet — a bespoke ensemble feel for the reception."
           />
         </div>
 

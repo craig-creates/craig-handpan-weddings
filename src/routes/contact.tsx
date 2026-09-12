@@ -100,7 +100,7 @@ function ContactPage() {
                   options={[
                     "Solo Handpan — £600",
                     "Handpan Duo (with double bass) — £1,050",
-                    "Handpan Trio (with flute or violin) — £1,450",
+                    "Handpan Trio (with clarinet) — £1,450",
                     "Ceremony add-on",
                     "Bespoke / Destination",
                     "Not sure yet",

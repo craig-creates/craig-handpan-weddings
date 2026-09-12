@@ -8,7 +8,7 @@ export const Route = createFileRoute("/packages")({
       {
         name: "description",
         content:
-          "Live handpan music for wedding drinks receptions. Solo from £600, Handpan Duo with double bass from £1,050, and Handpan Trio with flute or violin from £1,450.",
+          "Live handpan music for wedding drinks receptions. Solo from £600, Handpan Duo with double bass from £1,050, and Handpan Trio with clarinet from £1,450.",
       },
       { property: "og:title", content: "Wedding Drinks Reception Music | Solo, Duo & Trio from £600" },
       {
@@ -51,9 +51,9 @@ const packages = [
   {
     name: "Handpan Trio",
     price: "£1,450",
-    body: "Handpan, double bass, and your choice of flute or violin — the most cinematic option, arranged like a bespoke ensemble.",
+    body: "Handpan, double bass, and clarinet — the most cinematic option, arranged like a bespoke ensemble.",
     bullets: [
-      "Handpan + double bass + flute or violin",
+      "Handpan + double bass + clarinet",
       "2 hours of live music",
       "A standout musical moment for guests",
       "Coordinated arrangements across the set",
@@ -80,7 +80,7 @@ function PackagesPage() {
       <PageHeader
         eyebrow="Packages"
         title="Live music for your drinks reception."
-        intro="Every package is built around the drinks reception — two hours of live music as your guests gather after the ceremony. Start with solo handpan, or add double bass and flute or violin for a fuller sound."
+        intro="Every package is built around the drinks reception — two hours of live music as your guests gather after the ceremony. Start with solo handpan, or add double bass and clarinet for a fuller sound."
       />
 
       <section className="container-prose pb-28">
