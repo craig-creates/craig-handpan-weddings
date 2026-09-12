@@ -7,14 +7,16 @@
 - [x] TypeScript clean (tsgo --noEmit)
 - [x] Resend key valid (re_ prefix, send-only — correct for this use case)
 - [x] HubSpot token + permissions confirmed working (contacts, deals, schema, notes)
+- [x] Instagram URL updated to @kohpancraig
+- [x] Instagram native embed infrastructure on Listen page (add post URLs to src/lib/instagram-posts.ts)
 
 ## Pending on user
 - [ ] Resend domain verification (DKIM added to Namecheap DNS — waiting for Resend to verify at resend.com/domains)
-- [ ] Instagram handle confirmation (placeholder used: @handpanweddings)
 - [ ] Meta Pixel ID (VITE_META_PIXEL_ID) — needed when Meta ads start
+- [ ] Add Instagram post/reel URLs to src/lib/instagram-posts.ts to populate the feed
 
 ## Blocked
-- [ ] End-to-end enquiry test — blocked until Resend verifies handpanweddings.com domain. Test confirmed code path works up to email send; Resend returns 403 "please verify a domain" because DNS propagation is still pending.
+- [ ] End-to-end enquiry test — blocked until Resend verifies handpanweddings.com domain
 
 ## After Resend verification
 - [ ] Run labelled test enquiry → verify email to craig@handpanweddings.com + couple confirmation + HubSpot contact/deal creation
