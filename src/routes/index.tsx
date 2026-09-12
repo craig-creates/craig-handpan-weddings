@@ -121,10 +121,6 @@ function HomePage() {
             <h2 className="mt-4 heading-display text-4xl md:text-5xl">
               Built for the drinks reception.
             </h2>
-            <p className="mt-5 text-foreground/75 leading-relaxed">
-              Two hours of live music as your guests gather — with the option to
-              add ceremony music, or scale up to a duo or trio for a fuller sound.
-            </p>
           </div>
 
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
